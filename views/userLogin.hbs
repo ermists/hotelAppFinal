@@ -1,12 +1,22 @@
-        <form action="/userLogin" method="POST">
-            <fieldset>
-                <legend>Στοιχεία Χρήστη:</legend>
-                <br>
-                UserName: <input type="text" name="AdminID"><br><br>
-                Password: <input type="text" name="AdminPassword"><br><br>
+<link rel="stylesheet" href="/userlogstyle.css">
+<body>
+        <div class="form-container">
+            <form action="/userLogin" method="POST">
+                <div class="image">
+                    <legend>Σύνδεση</legend>
+                </div>
+                <fieldset>
+                    UserName: <input type="text" name="AdminID"><br><br>
+                    Password: <input type="text" name="AdminPassword"><br>
 
-            </fieldset>
-
-            {{message}}
-            <input type="submit" value="Είσοδος">
-        </form>
+                </fieldset>
+                <div class="neos">
+                    <input type="submit" value="Νέος Χρήστης" class="buttons">
+                </div>
+                {{message}}
+                <div class="eisodos">
+                    <input type="submit" value="Είσοδος" class="buttons">
+                </div>
+            </form>
+        </div>
+</body>       

@@ -30,22 +30,22 @@ body {
     width: 300px; /*Fixed width for the form container */
 }
 
-.ypovoli {
+
+.ypovoli{
+    background-color:rgb(153, 165, 165);
+    height: 2rem;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+fieldset input{
     margin: 0;
     border: none;
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-}
-
-#eisodos.ypovoli{
-    background-color:rgb(153, 165, 165);
-   
-    height: 2rem;
-}
-
-#stoixeia.ypovoli{
     width: 100%; /* Το input πλαίσιο παίρνει 100% του πλάτους του γονικού του στοιχείου (της φόρμας) */
     padding: 20px;
     box-sizing: border-box;
