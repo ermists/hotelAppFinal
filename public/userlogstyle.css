@@ -5,6 +5,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 5px 9px #00000050;
+    background-color: white;
 }
 .image{
     display: flex;
@@ -25,7 +26,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;      
+    margin: 0;   
+    background-image: url('img/bg_blur.png'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */   
 }
 
 fieldset {
@@ -53,8 +58,8 @@ fieldset {
     box-sizing: border-box;
     text-decoration: underline;
     text-shadow: #ccc;
+    color: rgba(13, 155, 120, 0.75);
     background-color: white;
-    color: rgba(13, 155, 120, 0.75)
 
 }
 
