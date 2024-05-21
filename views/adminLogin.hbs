@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/adminlogstyle.css"> 
+    <body>
+        <div class="form-container">
+        <form action="/adminLogin" method="POST">
+            <fieldset>
+                <legend>Στοιχεία Διαχειριστή:</legend>
+                <br>
+                UserName: <input type="text" name="AdminID" class="ypovoli" id="stoixeia"><br><br>
+                Password: <input type="text" name="AdminPassword" class="ypovoli" id="stoixeia"><br><br>
+
+            </fieldset>
+
+            {{message}}
+            <input type="submit" value="Είσοδος" class="ypovoli" id="eisodos">
+        </form>
+        </div>
+    </body>

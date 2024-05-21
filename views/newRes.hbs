@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="/stylepage2.css">        
+        <div class="row">
+
+            <div class="col-3">
+                Πληροφορίες για Πρωινό-Μεσημεριανό:<br><hr>
+                Πρωινό απλό: <br> 
+                Το απλό μενού πρωινού του ξεχοδοχείου μας περιέχει ψωμί, βούτυρο, μέλι, μαρμελάδα, τυρί και γαλοπούλα όπωσ επίσης και ένα ρόφημα της επιλογής σας, νερό ή καφέ.<br>
+                <br>Πρωινό Buffet:<br>
+                Επιλέγοντας πρωινό σε μπουφέ έχετε πρόσβαση σε ολόκληρο το μπουφέ του ξενοδοχείου μας που περιέχει γεύσεις από όλο τον κόσμο σε απεριόριστες ποσότητες. Επίσης έχετε απεριόστη ποσότητα ροφημάτων.<br> 
+                <hr>Μεσημεριανό Απλό: <br>
+                Το απλό μενού μεσημεριανού περιέχει ένα γεύμα της επιλογής με σαλάτα, ψωμί και ένα αναψυκτικό. <br>
+                <br>Μεσημεριανό Buffet: Επιλέγοντας αυτό το πακέτο έχετε πρόσβαση στο μπουφέ του ξενοδοχείου μας για το μεσημεριανό το οποίο περιέχει κάθε μέρα πληθώρα μαγειρευτών γευμάτων από τα οποία μπορείτε να επιλέξετε όσα θέλετε. 
+                <hr>
+                Δείπνο Απλό: <br> Το απλό δείπνο σας προσφέρει ένα γεύμα από τα γευματα ημέρας, με συνοδευτικό της επιλογής σας, σαλάτα, ψωμί και αναψυκτικό της επιλογής σας.<br>
+                <br>Δείπνο Buffet: <br>
+                Όπως και στο μεσημεριανό επιλέγοντας μπουφέ, έχετε την δυνατότητα να επιλέξετε παραπάνω από ένα γεύματα σε όποια ποσότητα επιθυμείτε και όσα αναψυκτικά επιθυμείτε.<br>
+                <br>Δείπνο Valentine's: <br> Αυτή η ιδιαίτερη περίπτωση δείπνου δίνει πρόσβαση στον ιδιαίτερα διαμορφομένο χώρο του ξενοδοχείου μας ειδικά για μαγευτικές βραδιές με το σύντροφο σας. Περιλαμβάνει δείπνο σε στρογγυλό τραπέζι, ρομαντικό στολισμό με τριαντάφυλλα και πέταλα και πλήρες σέρβις. Το γεύμα περιέχει πέντε πιάτα, 2 ορεκτικά, 2 κυρίως και ένα επιδόρπιο. 
+                <br> Υποσημείωση: Το μενού είναι προκαθορισμένο ωστόσο υπάρχουν 3 διαφορετικά μενού από τα οποία θα επιλέξετε ένα εκείνη τη στιγμή. Αυτο υπόσχεται μία πιο αυθεντική εμπειρία καθώς το ζευγάρι δεν γνωρίζει ακριβώς τι θα φάει και υπάρχει μυστήριο σε ένα βαθμό. 
+            </div>
+
+            <div class="col-6">
+                <div >
+                <h2>Καλωσήρθατε στη φόρμα Κρατήσεων του ξενοδοχείου</h2>
+                <hr>
+                <form action="/newRes" method="post">  
+                    <fieldset>
+                        <legend>Στοιχεία Πελάτη</legend><br><br>
+        
+                        <fieldset>
+                            Όνομα: <input type="text" id="name"><br><br>
+                            Επώνυμο: <input type="text" id="surname"><br><br>
+                            S.S.N.: <input type="text" id="SSN"><br><br>
+                        </fieldset>
+                        <hr>
+                        <fieldset>
+                            <legend>Στοιχεία Διεύθυνσης</legend><br><br>
+                            Οδός και Αριθμός <input type="text" id="street"><br><br>
+                            Πόλη: <input type="text" id="city"><br><br>
+                            Ταχυδρομικός Κώδικας: <input type="text" id="postal_code"><br><br>
+                        </fieldset>
+                        <hr>
+                        <fieldset>
+                            <legend>Στοιχεία Επικοινωνίας:</legend><br><br>
+                            Τηλέφωνο <input type="tel" id="telephone"><br><br>
+                            Διεύθυνση Ηλεκτρονικού Ταχυδρομίου <input type="email" id="email"><br>
+                        </fieldset>
+        
+                    </fieldset>
+                    <hr>
+                    <fieldset>
+                        <legend>Στοιχεία Κράτησης</legend><br>
+                        
+                        <fieldset>
+                            Δωμάτιο:
+                            <input type="radio" id="room" value="A">
+                            <label for="roomA">A</label>
+                            <input type="radio" id="room" value="B">
+                            <label for="roomB">B</label>
+                            <input type="radio" id="room" value="C">
+                            <label for="roomC">C</label>
+                            <input type="radio" id="room" value="D">
+                            <label for="roomD">D</label>
+                            <input type="radio" id="room" value="E">
+                            <label for="roomE">E</label>
+                        </fieldset>
+                        <hr>
+                        
+                        <fieldset>
+                            Αριθμός Ατόμων:
+                            <select>
+                            <option id="PeopleNo" value="1">1</option>
+                            <option id="PeopleNo" value="2">2</option>
+                            <option id="PeopleNo" value="3">3</option>
+                            <option id="PeopleNo" value="4">4</option>
+                            <option id="PeopleNo" value="5">5</option>
+                            <option id="PeopleNo" value="6">6</option>
+                            </select>
+                        </fieldset>
+                        <hr>
+                        <fieldset>
+                            Ημερομηνία Άφιξης: <input type="date" id="ariival_date">
+                            <br><br>
+                            Ημερομηνία Αναχώρησης: <input type="date" id="departure_date">
+                        </fieldset>
+                        <hr>
+                        <fieldset>
+                            <legend>Πακέτα Φαγητού:</legend><br>
+                            <input type="checkbox" id="food" value="A">
+                            <label for="breakfast1">Πρωινό Απλό</label><br>
+                            <input type="checkbox" id="food" value="B">
+                            <label for="breakfast2">Πρωινό Buffet</label><br>
+                            <input type="checkbox" id="food" value="C">
+                            <label for="lunch1">Μεσημεριανό Απλό</label><br>
+                            <input type="checkbox" id="food" value="D">
+                            <label for="lunch2">Μεσημεριανό Buffet</label><br>
+                            <input type="checkbox" id="food" value="E">
+                            <label for="dinner1">Δείπνο Απλό</label><br>
+                            <input type="checkbox" id="food" value="F">
+                            <label for="dinner2">Δείπνο Buffet</label><br>
+                            <input type="checkbox" id="food" value="G">
+                            <label for="dinner3">Δείπνο Valentine's</label>
+                        </fieldset>
+                    </fieldset>
+                    <hr>
+                    <input type="submit" value="Κράτηση">
+                </form>
+                </div>
+            </div>
+            
+            <div class="col-3"></div>
+        </div>

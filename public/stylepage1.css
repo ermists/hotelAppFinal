@@ -1,0 +1,73 @@
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(59, 26, 26, 0.324);
+    color: rgba(59, 26, 26, 0.9);
+    height: 4rem;
+    font-weight: 550;
+    
+}
+
+html {
+    font-family: "Georgia", serif;
+	background-color: #323c41;
+}
+
+.container {
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+}
+.container img{
+    width: 95%;
+    height: 450px;
+    object-fit: cover;
+
+}
+header{
+    font-size: 1.5em;
+    font-weight: 450;
+    font-style: italic;
+}
+
+body{
+    font-family: "Georgia", serif;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+h2 {
+    font-size: 2em;
+    font-style: italic;
+}
+.reservation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+}
+
+.adminlog {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.reservation button{
+    background-color:rgba(105, 57, 9, 0.2);
+    color: rgba(59, 26, 26, 0.9);
+    border: none;
+    font-weight: bold;
+}
+
+.adminlog button{
+    background-color:rgba(105, 57, 9, 0.2);
+    color: rgba(59, 26, 26, 0.9);
+    border: none;
+    font-weight: bold;
+    height: 2rem;
+    width: 7rem;
+}

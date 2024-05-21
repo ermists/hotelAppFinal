@@ -1,0 +1,53 @@
+legend{
+    font-size: 1.4rem;
+}
+form {
+    background-color: rgba(255,255,255,0.7); 
+    padding: 20px; 
+    border: none; /* Optional border */
+    border-radius: 8px; /* Optional rounded corners */
+    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default body margin */
+    background-image: url('img/imgsea.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    
+        
+}
+
+.form-container{
+    padding: 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    width: 300px; /*Fixed width for the form container */
+}
+
+.ypovoli {
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+#eisodos.ypovoli{
+    background-color:rgb(153, 165, 165);
+   
+    height: 2rem;
+}
+
+#stoixeia.ypovoli{
+    width: 100%; /* Το input πλαίσιο παίρνει 100% του πλάτους του γονικού του στοιχείου (της φόρμας) */
+    padding: 20px;
+    box-sizing: border-box;
+    height: 1rem;
+}

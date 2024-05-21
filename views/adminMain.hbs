@@ -1,0 +1,44 @@
+        <div style="text-align: left;">
+            <h1>Καλώς ήρθατε στην Σελίδα Διαχειριστή</h1>
+            <form action="/changeResDate" method="POST">
+                
+                <h2>Αλλαγή Ημερομηνίας</h2>
+                <br><br>
+                Αριθμός Δωματίου: <input type="number" id="roomNo">
+                <br><br>
+                Επώνυμο Πελάτη: <input type="text" id="CustSurname">
+                <br><br>
+                Νέα Ημερομηνία Άφιξης: <input type="date" id="newarrivalDate">
+                <br><br>
+                Νέα Ημερομηνία Αναχώρησης: <input type="date" id="newdepartureDate">
+                <br><br>
+                <input type="submit" value="Αλλαγή Ημερομηνίας">
+                <br><br><br>
+            </form>
+
+            <form action="/deleteRes" method="POST">
+                <h3>Διαγραφή Κράτησης</h3>
+                <br><br>
+                Αριθμός Δωματίου: <input type="number" id="roomNotodelete">
+                <br><br>
+                Επώνυμο Πελάτη: <input type="text" id="CustSurnametodelete">
+                <br><br>
+                <input type="submit" value="Διαγραφή">
+                <br><br><br>
+            </form>
+
+            <form action="/changeRoom" method="POST">
+                <h4>Αλλαγή Δωματίου</h4>
+                <br><br>
+                Αριθμός Δωματίου: <input type="number" id="roomNotochange">
+                <br><br>
+                Επώνυμο Πελάτη: <input type="text" id="CustSurnamechange">
+                <br><br>
+                Νέος Αριθμός Δωματίου: <input type="number" id="newroomNo">
+                <br><br>
+                <input type="submit" value="Αλλαγή Δωματίου">
+            </form>
+            
+            <!--καπου να μπει ενα κουμπί το οποίο θα μας παραπέμπει στο λινκ /addNewAdmin όπου σου αρέσει -->
+
+        </div>
