@@ -3,32 +3,6 @@ import fs from 'fs';
 
 const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
 
-export function dbSetup () {
-
-    // Read the SQL commands from the db creation file
-    const sqlCommands = fs.readFileSync('Model/db/hotelProjectDB.sql', 'utf-8');
-
-    // Execute the SQL commands to create tables of db
-    try {
-        sql.exec(sqlCommands);
-        console.log('Tables created successfully.');
-    } catch (err) {
-        console.error('Error creating tables:', err);
-        throw(err);
-    }
-
-    // Read the data from the HotelBasicInfo.sql file
-    const basicInfoCommands = fs.readFileSync('Model/db/hotelProjectDB.sql', 'utf-8');
-
-    // Execute the SQL commands to fill the tables with the data
-    try {
-        sql.exec(basicInfoCommands);
-        console.log('Data inserted successfully.');
-    } catch (err) {
-        console.error('Error inserting data:', err);
-        throw(err);
-    }
-}
 
 export function addNewRes (resCode, name, surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room,peopleNo) {
     try {

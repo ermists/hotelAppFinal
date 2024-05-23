@@ -82,7 +82,6 @@ export function deleteRes (req, res) {
 
 export function applicLoad (req, res) {
     try {
-        model.dbSetup();
         res.render('rooms');
     }catch (err) {
         next(err);
