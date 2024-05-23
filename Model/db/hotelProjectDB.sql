@@ -2,8 +2,10 @@ CREATE TABLE IF NOT EXISTS "USER" (
 	"SSN" integer,
 	"Name" varchar,
 	"Surname" varchar,
-	"StreetName" varchar,
-	"StreetNo" integer,
+	"Street" varchar,
+	"City" integer,
+	"PostalCode" integer,
+	"email" varchar,
 	"PhoneNo" integer,
 	PRIMARY KEY ("SSN")
 );

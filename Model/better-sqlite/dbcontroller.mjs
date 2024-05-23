@@ -43,22 +43,32 @@ export function addNewRes (resCode, name, surname, SSN, street, city, postalCode
     }
 }
 
-export function changeResDate (roomNo,custSurname, newArrivalDate, newDepartureDate) {
+export function changeResDate (roomNo, custEmail, oldArrivalDate, newArrivalDate, newDepartureDate) {
     try {
-        const stmt = sql.prepare('UPDATE "RESERVATION" SET "Arrival" = ? AND "Departure" = ? WHERE "RoomNumber" = ? AND');
-        stmt.run(newDate, resCode);
+        const stmt = sql.prepare('UPDATE "RESERVATION" SET "Arrival" = ? AND "Departure" = ? WHERE "RoomNumber" = ? AND "Arrrival" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?)');
+        stmt.run(newArrivalDate, newDepartureDate, roomNo, oldArrivalDate, custEmail);
     }catch (err) {
         console.error('Error changing reservation date:', err);
         throw(err);
     }
 }
 
-export function changeResRoom (resCode, newRoom) {
+export function changeResRoom (roomNo, newRoomNo, custEmail, arrivalDate) {
     try {
-        const stmt = sql.prepare('UPDATE "RESERVATION" SET room = ? WHERE resCode = ?');
-        stmt.run(newRoom, resCode);
+        const stmt = sql.prepare('UPDATE "RESERVATION" SET "RoomNumber" = ? WHERE "RoomNumber" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?) AND "Arrival" = ?');
+        stmt.run(newRoomNo, roomNo, custEmail, arrivalDate);
     }catch (err) {
         console.error('Error changing reservation room:', err);
+        throw(err);
+    }
+}
+
+export function deleteRes (roomNo, custEmail, arrivalDate) {
+    try {
+        const stmt = sql.prepare('DELETE FROM "RESERVATION" WHERE "RoomNumber" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?) AND "Arrival" = ?');
+        stmt.run(roomNo, custEmail, arrivalDate);
+    }catch (err) {
+        console.error('Error deleting reservation:', err);
         throw(err);
     }
 }

@@ -10,19 +10,19 @@ import * as model from '../Model/better-sqlite/dbcontroller.mjs';
 export function addNewRes (req, res) {
     try {
         //get input values
-        clientName = document.getElementById('name').value;
-        surname = document.getElementById('surname').value;
-        SSN = document.getElementById('SSN').value;
-        arrivalDate = document.getElementById('arrival_date').value;
-        departurDate = document.getElementById('departure_date').value;
-        room = document.getElementById('room').value;
-        PeopleNo = document.getElementById('PeopleNo').value;
-        street = document.getElementById('street').value;
-        city = document.getElementById('city').value;
-        postalCode = document.getElementById('postal_code').value;
-        food = document.getElementById('food').value;
-        email = document.getElementById('email').value;
-        phone = document.getElementById('telephone').value;
+        clientName = req.body.name;
+        surname = req.body.surname;
+        SSN = req.body.SSN;
+        arrivalDate = req.body.arrival_date;
+        departurDate = req.body.departure_date;
+        room = req.body.room;
+        PeopleNo = req.body.PeopleNo;
+        street = req.body.street;
+        city = req.body.city;
+        postalCode = req.body.postal_code;
+        food = req.body.food;
+        email = req.body.email;
+        phone = req.body.telephone;
         
         //send the values to db interface
         model.addNewRes(23562437247826/SSN,clientName,surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room, PeopleNo, food);
@@ -44,12 +44,13 @@ export function addNewAdmin (req, res) {
 
 export function changeResDate(req, res) {
     try {
-        roomNo = document.getElementById('roomNo').value;
-        custSurname = document.getElementById('custSurname').value;
-        newArrivalDate = document.getElementById('newArrivalDate').value;
-        newDepartureDate = document.getElementById('newDepartureDate').value;
+        roomNo = req.body.roomNo;
+        custEmail = req.body.custEmail;
+        newArrivalDate = req.body.newarrivalDate;
+        newDepartureDate = req.body.newdepartureDate;
+        oldArrivalDate = req.body.oldarrivalDate;
 
-        model.changeResDate(roomNo, custSurname, newArrivalDate, newDepartureDate);
+        model.changeResDate(roomNo, custEmail, oldArrivalDate, newArrivalDate, newDepartureDate);
 
         res.redirect('/adminMain');
     }catch (err) {
@@ -61,12 +62,32 @@ export function changeResDate(req, res) {
 
 export function changeResRoom (req, res) {
     try {
-        model.changeResRoom(req.body.resCode, req.body.newRoom);
+        roomNo = req.body.roomNotochange;
+        newRoomNo = req.body.newRoomNo;
+        custEmail = req.body.custEmailtochange;
+        arrivalDate = req.body.arrivalDatetochange;
+
+        model.changeResRoom(roomNo, newRoomNo, custEmail, arrivalDate);
+
+        res.redirect('/adminMain');
     }catch (err) {
        next(err);
     }
 }
 
+export function deleteRes (req, res) {
+    try {
+        roomNo = req.body.roomNotodelete;
+        custEmail = req.body.custEmailtodelete;
+        arrivalDate = req.body.arrivalDatetodelete;
+
+        model.deleteRes(roomNo, custEmail, arrivalDate);
+
+        res.redirect('/adminMain');
+    }catch (err) {
+        next(err);
+    }
+}
 
 export function applicLoad (req, res) {
     try {
