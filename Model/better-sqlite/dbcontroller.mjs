@@ -1,7 +1,7 @@
 import db from 'better-sqlite3';
-import fs from 'fs';
 
 const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
+
 
 
 export function addNewRes (resCode, name, surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room,peopleNo) {
@@ -124,3 +124,12 @@ export let registerAdmin = function (username, password) {
     }
 }
 
+export let declareInterest = function (SSN, actSelection, date) {
+    try {
+        const stmt = sql.prepare('INSERT INTO "DECLARATION" VALUES (?, ?, ?)');
+        stmt.run(SSN, actSelection, date);
+    } catch (error) {
+        console.error('Error declaring interest:', err);
+        throw(err);
+    }
+}

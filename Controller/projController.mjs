@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 import * as model from '../Model/better-sqlite/dbcontroller.mjs';
 
-export function addNewRes (req, res) {
+export function addNewRes (req, res, next) {
     try {
         //get input values
         clientName = req.body.name;
@@ -33,7 +33,7 @@ export function addNewRes (req, res) {
     }
 }
 
-export function changeResDate(req, res) {
+export function changeResDate(req, res, next) {
     try {
         roomNo = req.body.roomNo;
         custEmail = req.body.custEmail;
@@ -51,7 +51,7 @@ export function changeResDate(req, res) {
 
 
 
-export function changeResRoom (req, res) {
+export function changeResRoom (req, res, next) {
     try {
         roomNo = req.body.roomNotochange;
         newRoomNo = req.body.newRoomNo;
@@ -66,7 +66,7 @@ export function changeResRoom (req, res) {
     }
 }
 
-export function deleteRes (req, res) {
+export function deleteRes (req, res, next) {
     try {
         roomNo = req.body.roomNotodelete;
         custEmail = req.body.custEmailtodelete;
@@ -80,7 +80,7 @@ export function deleteRes (req, res) {
     }
 }
 
-export function applicLoad (req, res) {
+export function applicLoad (req, res, next) {
     try {
         res.render('rooms');
     }catch (err) {
@@ -88,7 +88,7 @@ export function applicLoad (req, res) {
     }
 }
 
-export function loadNewRes (req, res) {
+export function loadNewRes (req, res, next) {
     try {
         res.render('newRes');
     }catch (err) {
@@ -96,7 +96,7 @@ export function loadNewRes (req, res) {
     }
 }
 
-export function aboutFood (req, res) {
+export function aboutFood (req, res, next) {
     try {
         res.render('aboutfood');
     }catch (err) {
@@ -104,3 +104,24 @@ export function aboutFood (req, res) {
     }
 }
 
+export function declareInterestShow (req, res, next) {
+    try {
+        res.render('declareInterest');
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function declareInterestSubmit (req, res, next) {
+    try {
+        SSN = req.body.SSN;
+        actSelection = req.body.actSelection;
+        date = req.body.date;
+
+        model.declareInterest(name, surname, email, phone, interest);
+
+        res.redirect('/');
+    }catch (err) {
+        next(err);
+    }
+}

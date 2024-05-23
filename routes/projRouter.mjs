@@ -23,15 +23,15 @@ router.get('/userMain', loginController.checkAuthenticatedUser, loginController.
 router.get('/newAdmin', loginController.addNewAdmin);
 router.get('/newUser', loginController.addNewUser);
 
-
 router.post('/changeResDate',loginController.checkAuthenticatedAdmin, projController.changeResDate);
 router.post('/changeResRoom',loginController.checkAuthenticatedAdmin, projController.changeResRoom);
 router.post('/deleteRes',loginController.checkAuthenticatedAdmin, projController.deleteRes);
-
 router.get('/newRes', projController.loadNewRes);
 router.route('/newRes').post(projController.addNewRes);
-
 router.get('/aboutfood', projController.aboutFood);
+
+router.get('declareInterest', projController.declareInterestShow);
+router.route('/declareInterest').post(projController.declareInterestSubmit);
 
 router.get('/', projController.applicLoad);
 
