@@ -20,8 +20,8 @@ export function userLoginshow (req, res, next) {
 
 export function userDoLogin (req, res, next) {
     try {
-        if (req.body.username != "" || req.body.password != "") {
-            const user = model.getUserByUsername(req.body.username);
+        if (req.body.username != "" || req.body.password != "" || req.body.username === undefined || req.body.password === undefined) {
+            const user = model.getUserByUsername(req.body.username); //prepi na epsitrefi kai to password apo ti basi !!!!!
         }else{
             res.render('userLogin', { message: 'Δεν έχετε εισάγει όνομα χρήστη ή κωδικό πρόσβασης' });
         }
@@ -52,8 +52,8 @@ export function userDoLogin (req, res, next) {
 export function adminDoLogin (req, res, next) {
     try {
 
-        if (req.body.username != ""|| req.body.password != "") {
-            const user = model.getAdminByUsername(req.body.username);
+        if (req.body.username != ""|| req.body.password != "" || req.body.username === undefined || req.body.password === undefined) {
+            const user = model.getAdminByUsername(req.body.username); //prepi na epsitrefi kai to password apo ti basi !!!!!
         }else{
             res.render('adminLogin', { message: 'Δεν έχετε εισάγει όνομα χρήστη η΄κωδικό πρόσβασης' });
         }
@@ -81,7 +81,7 @@ export function adminDoLogin (req, res, next) {
     }
 }
 
-export function adminLogout (req, res,next) {
+export function logout (req, res,next) {
     try {
         req.session.destroy();
         res.redirect('/');
@@ -156,5 +156,35 @@ export function userMain (req, res) {
         res.render('userMain');
     }catch (err) {
         console.error(err);
+    }
+}
+
+export function addNewUser (req, res) {
+    try {
+        const registrationResult = model.registerUser(req.body.username, req.body.password);
+        if (registrationResult.message) {
+            res.render('register-password', { message: registrationResult.message })
+        }
+        else {
+            res.redirect('/userLogin');
+        }
+    } catch (error) {
+        console.error('registration error');
+        res.redirect('/newUser');
+    }
+}
+
+export function addNewAdmin (req, res) {
+    try {
+        const registrationResult = model.registerAdmin(req.body.username, req.body.password);
+        if (registrationResult.message) {
+            res.render('register-password', { message: registrationResult.message })
+        }
+        else {
+            res.redirect('/adminLogin');
+        }
+    } catch (error) {
+        console.error('registration error');
+        res.redirect('/newAdmin');
     }
 }

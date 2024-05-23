@@ -33,10 +33,10 @@ header{
 
 body{
     font-family: "Georgia", serif;
-    background-image: url('img/bg_blur.png'); /* Path to your background image */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */   
+    /* background-image: url('img/bg_blur.png');  
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; */    
 }
 
 p {

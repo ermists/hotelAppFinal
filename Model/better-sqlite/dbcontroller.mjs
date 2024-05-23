@@ -1,34 +1,8 @@
 import db from 'better-sqlite3';
-import fs from 'fs';
 
 const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
 
-export function dbSetup () {
 
-    // Read the SQL commands from the db creation file
-    const sqlCommands = fs.readFileSync('Model/db/hotelProjectDB.sql', 'utf-8');
-
-    // Execute the SQL commands to create tables of db
-    try {
-        sql.exec(sqlCommands);
-        console.log('Tables created successfully.');
-    } catch (err) {
-        console.error('Error creating tables:', err);
-        throw(err);
-    }
-
-    // Read the data from the HotelBasicInfo.sql file
-    const basicInfoCommands = fs.readFileSync('Model/db/hotelProjectDB.sql', 'utf-8');
-
-    // Execute the SQL commands to fill the tables with the data
-    try {
-        sql.exec(basicInfoCommands);
-        console.log('Data inserted successfully.');
-    } catch (err) {
-        console.error('Error inserting data:', err);
-        throw(err);
-    }
-}
 
 export function addNewRes (resCode, name, surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room,peopleNo) {
     try {
@@ -43,22 +17,32 @@ export function addNewRes (resCode, name, surname, SSN, street, city, postalCode
     }
 }
 
-export function changeResDate (roomNo,custSurname, newArrivalDate, newDepartureDate) {
+export function changeResDate (roomNo, custEmail, oldArrivalDate, newArrivalDate, newDepartureDate) {
     try {
-        const stmt = sql.prepare('UPDATE "RESERVATION" SET "Arrival" = ? AND "Departure" = ? WHERE "RoomNumber" = ? AND');
-        stmt.run(newDate, resCode);
+        const stmt = sql.prepare('UPDATE "RESERVATION" SET "Arrival" = ? AND "Departure" = ? WHERE "RoomNumber" = ? AND "Arrrival" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?)');
+        stmt.run(newArrivalDate, newDepartureDate, roomNo, oldArrivalDate, custEmail);
     }catch (err) {
         console.error('Error changing reservation date:', err);
         throw(err);
     }
 }
 
-export function changeResRoom (resCode, newRoom) {
+export function changeResRoom (roomNo, newRoomNo, custEmail, arrivalDate) {
     try {
-        const stmt = sql.prepare('UPDATE "RESERVATION" SET room = ? WHERE resCode = ?');
-        stmt.run(newRoom, resCode);
+        const stmt = sql.prepare('UPDATE "RESERVATION" SET "RoomNumber" = ? WHERE "RoomNumber" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?) AND "Arrival" = ?');
+        stmt.run(newRoomNo, roomNo, custEmail, arrivalDate);
     }catch (err) {
         console.error('Error changing reservation room:', err);
+        throw(err);
+    }
+}
+
+export function deleteRes (roomNo, custEmail, arrivalDate) {
+    try {
+        const stmt = sql.prepare('DELETE FROM "RESERVATION" WHERE "RoomNumber" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?) AND "Arrival" = ?');
+        stmt.run(roomNo, custEmail, arrivalDate);
+    }catch (err) {
+        console.error('Error deleting reservation:', err);
         throw(err);
     }
 }
@@ -140,3 +124,12 @@ export let registerAdmin = function (username, password) {
     }
 }
 
+export let declareInterest = function (SSN, actSelection, date) {
+    try {
+        const stmt = sql.prepare('INSERT INTO "DECLARATION" VALUES (?, ?, ?)');
+        stmt.run(SSN, actSelection, date);
+    } catch (error) {
+        console.error('Error declaring interest:', err);
+        throw(err);
+    }
+}

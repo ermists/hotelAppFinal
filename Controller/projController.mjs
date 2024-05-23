@@ -7,22 +7,22 @@ if (process.env.NODE_ENV !== 'production') {
 
 import * as model from '../Model/better-sqlite/dbcontroller.mjs';
 
-export function addNewRes (req, res) {
+export function addNewRes (req, res, next) {
     try {
         //get input values
-        clientName = document.getElementById('name').value;
-        surname = document.getElementById('surname').value;
-        SSN = document.getElementById('SSN').value;
-        arrivalDate = document.getElementById('arrival_date').value;
-        departurDate = document.getElementById('departure_date').value;
-        room = document.getElementById('room').value;
-        PeopleNo = document.getElementById('PeopleNo').value;
-        street = document.getElementById('street').value;
-        city = document.getElementById('city').value;
-        postalCode = document.getElementById('postal_code').value;
-        food = document.getElementById('food').value;
-        email = document.getElementById('email').value;
-        phone = document.getElementById('telephone').value;
+        clientName = req.body.name;
+        surname = req.body.surname;
+        SSN = req.body.SSN;
+        arrivalDate = req.body.arrival_date;
+        departurDate = req.body.departure_date;
+        room = req.body.room;
+        PeopleNo = req.body.PeopleNo;
+        street = req.body.street;
+        city = req.body.city;
+        postalCode = req.body.postal_code;
+        food = req.body.food;
+        email = req.body.email;
+        phone = req.body.telephone;
         
         //send the values to db interface
         model.addNewRes(23562437247826/SSN,clientName,surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room, PeopleNo, food);
@@ -32,24 +32,16 @@ export function addNewRes (req, res) {
         res.redirect('/newRes');
     }
 }
-export function addNewAdmin (req, res) {
+
+export function changeResDate(req, res, next) {
     try {
-        //middlewear that adds a new admin to the database
+        roomNo = req.body.roomNo;
+        custEmail = req.body.custEmail;
+        newArrivalDate = req.body.newarrivalDate;
+        newDepartureDate = req.body.newdepartureDate;
+        oldArrivalDate = req.body.oldarrivalDate;
 
-    }catch (err) {
-        console.error(err);
-    }
-}
-
-
-export function changeResDate(req, res) {
-    try {
-        roomNo = document.getElementById('roomNo').value;
-        custSurname = document.getElementById('custSurname').value;
-        newArrivalDate = document.getElementById('newArrivalDate').value;
-        newDepartureDate = document.getElementById('newDepartureDate').value;
-
-        model.changeResDate(roomNo, custSurname, newArrivalDate, newDepartureDate);
+        model.changeResDate(roomNo, custEmail, oldArrivalDate, newArrivalDate, newDepartureDate);
 
         res.redirect('/adminMain');
     }catch (err) {
@@ -59,27 +51,76 @@ export function changeResDate(req, res) {
 
 
 
-export function changeResRoom (req, res) {
+export function changeResRoom (req, res, next) {
     try {
-        model.changeResRoom(req.body.resCode, req.body.newRoom);
+        roomNo = req.body.roomNotochange;
+        newRoomNo = req.body.newRoomNo;
+        custEmail = req.body.custEmailtochange;
+        arrivalDate = req.body.arrivalDatetochange;
+
+        model.changeResRoom(roomNo, newRoomNo, custEmail, arrivalDate);
+
+        res.redirect('/adminMain');
     }catch (err) {
        next(err);
     }
 }
 
-
-export function applicLoad (req, res) {
+export function deleteRes (req, res, next) {
     try {
-        model.dbSetup();
+        roomNo = req.body.roomNotodelete;
+        custEmail = req.body.custEmailtodelete;
+        arrivalDate = req.body.arrivalDatetodelete;
+
+        model.deleteRes(roomNo, custEmail, arrivalDate);
+
+        res.redirect('/adminMain');
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function applicLoad (req, res, next) {
+    try {
         res.render('rooms');
     }catch (err) {
         next(err);
     }
 }
 
-export function loadNewRes (req, res) {
+export function loadNewRes (req, res, next) {
     try {
         res.render('newRes');
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function aboutFood (req, res, next) {
+    try {
+        res.render('aboutfood');
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function declareInterestShow (req, res, next) {
+    try {
+        res.render('declareInterest');
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function declareInterestSubmit (req, res, next) {
+    try {
+        SSN = req.body.SSN;
+        actSelection = req.body.actSelection;
+        date = req.body.date;
+
+        model.declareInterest(name, surname, email, phone, interest);
+
+        res.redirect('/');
     }catch (err) {
         next(err);
     }
