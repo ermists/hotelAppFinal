@@ -161,17 +161,30 @@ export function userMain (req, res) {
 
 export function addNewUser (req, res) {
     try {
-        //middlewear that adds a new user to the database
-    }catch (err) {
-        next(err);
+        const registrationResult = model.registerUser(req.body.username, req.body.password);
+        if (registrationResult.message) {
+            res.render('register-password', { message: registrationResult.message })
+        }
+        else {
+            res.redirect('/userLogin');
+        }
+    } catch (error) {
+        console.error('registration error');
+        res.redirect('/newUser');
     }
 }
 
 export function addNewAdmin (req, res) {
     try {
-        //middlewear that adds a new admin to the database
-
-    }catch (err) {
-        console.error(err);
+        const registrationResult = model.registerAdmin(req.body.username, req.body.password);
+        if (registrationResult.message) {
+            res.render('register-password', { message: registrationResult.message })
+        }
+        else {
+            res.redirect('/adminLogin');
+        }
+    } catch (error) {
+        console.error('registration error');
+        res.redirect('/newAdmin');
     }
 }

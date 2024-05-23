@@ -20,9 +20,7 @@ router.route('/userLogin').post(loginController.userDoLogin);
 router.get('/adminLogout', loginController.logout);
 router.get('/adminMain', loginController.checkAuthenticatedAdmin, loginController.adminMain);
 router.get('/userMain', loginController.checkAuthenticatedUser, loginController.userMain);
-
 router.get('/newAdmin', loginController.addNewAdmin);
-
 router.get('/newUser', loginController.addNewUser);
 
 
