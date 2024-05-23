@@ -158,3 +158,20 @@ export function userMain (req, res) {
         console.error(err);
     }
 }
+
+export function addNewUser (req, res) {
+    try {
+        //middlewear that adds a new user to the database
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function addNewAdmin (req, res) {
+    try {
+        //middlewear that adds a new admin to the database
+
+    }catch (err) {
+        console.error(err);
+    }
+}

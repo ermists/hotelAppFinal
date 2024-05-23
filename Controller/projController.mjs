@@ -32,15 +32,6 @@ export function addNewRes (req, res) {
         res.redirect('/newRes');
     }
 }
-export function addNewAdmin (req, res) {
-    try {
-        //middlewear that adds a new admin to the database
-
-    }catch (err) {
-        console.error(err);
-    }
-}
-
 
 export function changeResDate(req, res) {
     try {
@@ -105,3 +96,12 @@ export function loadNewRes (req, res) {
         next(err);
     }
 }
+
+export function aboutFood (req, res) {
+    try {
+        res.render('aboutfood');
+    }catch (err) {
+        next(err);
+    }
+}
+

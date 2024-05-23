@@ -1,6 +1,7 @@
 import express from 'express';
 
 import dotenv from 'dotenv'
+import { checkAuthenticatedUser } from '../Controller/loginLogoutController.mjs';
 if (process.env.NODE_ENV !== 'production') {
     console.log('loading .env')
     dotenv.config();
@@ -9,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 const router = express.Router();
 const projController = await import(`../Controller/projController.mjs`)
 const loginController = await import(`../Controller/loginLogoutController.mjs`)
+router.route('/page2.html').get((req,res)=>{res.redirect('/newRes')});
 
 
 router.get('/adminLogin', loginController.adminLoginshow);
@@ -19,14 +21,20 @@ router.get('/adminLogout', loginController.logout);
 router.get('/adminMain', loginController.checkAuthenticatedAdmin, loginController.adminMain);
 router.get('/userMain', loginController.checkAuthenticatedUser, loginController.userMain);
 
+router.get('/newAdmin', loginController.addNewAdmin);
+
+router.get('/newUser', loginController.addNewUser);
+
+
 router.post('/changeResDate',loginController.checkAuthenticatedAdmin, projController.changeResDate);
 router.post('/changeResRoom',loginController.checkAuthenticatedAdmin, projController.changeResRoom);
 router.post('/deleteRes',loginController.checkAuthenticatedAdmin, projController.deleteRes);
 
-router.get('/newRes', loginController.checkAuthenticatedUser, projController.loadNewRes);
-router.route('/newRes').post(loginController.checkAuthenticatedUser,projController.addNewRes);
+router.get('/newRes', projController.loadNewRes);
+router.route('/newRes').post(projController.addNewRes);
 
-router.get('/newAdmin', projController.addNewAdmin);
+router.get('/aboutfood', projController.aboutFood);
+
 router.get('/', projController.applicLoad);
 
 export default router;
