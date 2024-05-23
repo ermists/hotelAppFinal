@@ -9,8 +9,6 @@ if (process.env.NODE_ENV !== 'production') {
 const router = express.Router();
 const projController = await import(`../Controller/projController.mjs`)
 const loginController = await import(`../Controller/loginLogoutController.mjs`)
-router.route('/page2.html').get((req,res)=>{res.redirect('/newRes')});
-
 
 router.get('/adminLogin', loginController.adminLoginshow);
 router.route('/adminLogin').post(loginController.adminDoLogin);
