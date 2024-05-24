@@ -1,57 +1,67 @@
-<link rel="stylesheet" href="/stylepage2.css">        
+<link rel="stylesheet" href="/reservationStyle.css"> 
+<body>    
+     <div class="welcome">
+                    <h2>Καλωσήρθατε στη φόρμα Κρατήσεων του El Dorado</h2>
+    </div>  
         <div class="row">
-
+           
             <div class="col-3"></div>
 
             <div class="col-6">
                 <div >
-                <h2>Καλωσήρθατε στη φόρμα Κρατήσεων του ξενοδοχείου</h2>
-                <hr>
-                <form action="/newRes" method="post">  
-                    <fieldset>
-                        <legend>Στοιχεία Πελάτη</legend><br><br>
-        
+                <form action="/newRes" method="post">
+                <div class="box">
                         <fieldset>
-                            Όνομα: <input type="text" id="name"><br><br>
-                            Επώνυμο: <input type="text" id="surname"><br><br>
-                            S.S.N.: <input type="text" id="SSN"><br><br>
-                        </fieldset>
-                        <hr>
+                            <legend>Στοιχεία Πελάτη</legend>
+            
+                            <fieldset>
+                                Όνομα: <input type="text" id="name"><br><br>
+                                Επώνυμο: <input type="text" id="surname"><br><br>
+                                S.S.N.: <input type="text" id="SSN"><br><br>
+                            </fieldset>
+                            
+                </div>
+                <div class="box">
                         <fieldset>
-                            <legend>Στοιχεία Διεύθυνσης</legend><br><br>
-                            Οδός και Αριθμός <input type="text" id="street"><br><br>
+                            <legend>Στοιχεία Διεύθυνσης</legend>
+                            Οδός και Αριθμός: <input type="text" id="street"><br><br>
                             Πόλη: <input type="text" id="city"><br><br>
-                            Ταχυδρομικός Κώδικας: <input type="text" id="postal_code"><br><br>
+                            ΤK: <input type="text" id="postal_code"><br><br>
                         </fieldset>
-                        <hr>
+                    
+                </div>
+                <div class="box">
                         <fieldset>
-                            <legend>Στοιχεία Επικοινωνίας:</legend><br><br>
-                            Τηλέφωνο <input type="tel" id="telephone"><br><br>
-                            Διεύθυνση Ηλεκτρονικού Ταχυδρομίου <input type="email" id="email"><br>
+                            <legend>Στοιχεία Επικοινωνίας</legend>
+                            Τηλέφωνο: <input type="tel" id="telephone"><br><br>
+                            Email: <input type="email" id="email"><br><br>
                         </fieldset>
-        
+                      
+                 
                     </fieldset>
-                    <hr>
+                </div>
+
+                <div class="box">
                     <fieldset>
-                        <legend>Στοιχεία Κράτησης</legend><br>
+                        <legend>Στοιχεία Κράτησης</legend>
                         
                         <fieldset>
-                            Δωμάτιο:
+                            <h5>Δωμάτιο:</h5>
                             <input type="radio" id="room" value="A">
-                            <label for="roomA">A</label>
+                            <label for="roomA">San Jose (Δίκλινο-Budget)</label><br>
                             <input type="radio" id="room" value="B">
-                            <label for="roomB">B</label>
+                            <label for="roomB">Veracruz (Δίκλινο-Luxurious)</label><br>
                             <input type="radio" id="room" value="C">
-                            <label for="roomC">C</label>
+                            <label for="roomC">Cordoba (Τετράκλινο-Budget)</label><br>
                             <input type="radio" id="room" value="D">
-                            <label for="roomD">D</label>
+                            <label for="roomD">Guadalajara (Τετράκλινο-Luxurious)</label><br>
                             <input type="radio" id="room" value="E">
-                            <label for="roomE">E</label>
+                            <label for="roomE">Ciudad Juarez (Εξάκλινο-Luxurious)</label><br>
                         </fieldset>
                         <hr>
-                        
+    
                         <fieldset>
-                            Αριθμός Ατόμων:
+                            <h5>Αριθμός Ατόμων:</h5>
                             <select>
                             <option id="PeopleNo" value="1">1</option>
                             <option id="PeopleNo" value="2">2</option>
@@ -63,13 +73,21 @@
                         </fieldset>
                         <hr>
                         <fieldset>
-                            Ημερομηνία Άφιξης: <input type="date" id="ariival_date">
+                            <h5>Ημερομηνία Άφιξης:</h5><input type="date" id="ariival_date">
                             <br><br>
-                            Ημερομηνία Αναχώρησης: <input type="date" id="departure_date">
+                            <h5>Ημερομηνία Αναχώρησης:</h5> <input type="date" id="departure_date"><br><br>
                         </fieldset>
-                        <hr>
+                       
+                </div>
+                <div class="box">  
                         <fieldset>
-                            <legend>Πακέτα Φαγητού:</legend><br>
+                            <legend>Πακέτα Φαγητού:
+                                <button type="button" onclick="window.location.href = '/aboutfood'" class="info-button">
+                                <img src="img/infobtn.png" alt="Info" class="info-icon">
+                            </button>
+                            </legend>
+                            
+                        
                             <input type="checkbox" id="food" value="A">
                             <label for="breakfast1">Πρωινό Απλό</label><br>
                             <input type="checkbox" id="food" value="B">
@@ -84,14 +102,17 @@
                             <label for="dinner2">Δείπνο Buffet</label><br>
                             <input type="checkbox" id="food" value="G">
                             <label for="dinner3">Δείπνο Valentine's</label>
+                            <br>
                         </fieldset>
-                        <button type="button" onclick="window.location.href = '/aboutfood'">Διαθέσιμα Πακέτα Φαγητού</button>
                     </fieldset>
-                    <hr>
-                    <input type="submit" value="Κράτηση">
+                
+                </div>
+                <div class="ypovoli"> 
+                    <input type="submit" value="Επιβεβαίωση Κράτησης">
                 </form>
+                </div>
                 </div>
             </div>
             
             <div class="col-3"></div>
-        </div>
+</body> 

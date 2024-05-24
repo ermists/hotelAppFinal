@@ -1,0 +1,121 @@
+
+.box{
+    border:none;
+    border-radius: 8px;
+    background-color: rgba(168, 118, 84, 0.173);
+    box-shadow: 0 5px 9px #00000050;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+h2{
+    font-style: normal;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.2rem;
+
+}
+
+body{
+background-image: url('img/bg_blur.png');
+background-size: cover; 
+background-position: center; 
+background-repeat: no-repeat;  
+color: rgb(77, 43, 13);
+width:viewport;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+h{
+    color:rgb(93, 56, 22);
+}
+
+.ypovoli{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-icon{
+    width: 20px; 
+    height: 20px;
+
+}
+
+legend{
+    display: flex;
+    background-color: rgba(114, 53, 10, 0.219);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    margin-left: 0%;
+    margin-right: 0%;
+    /* background-color: rgba(114, 53, 10, 0.422); */
+    margin-bottom: 20px;
+    background-image: url('img/sea_blur.jpg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(0, 63, 55);
+    background-size: cover;
+   
+}
+
+.info-button{
+    background-color: transparent;
+    border: none;
+}
+
+fieldset input{
+    box-sizing: border-box;
+    height: 1rem;
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    margin: 0;
+    background-color:rgba(255, 249, 246, 0.661);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    margin-left: 20px;
+}
+
+fieldset{
+    font-size: 1.2rem;
+}
+
+fieldset label{
+    margin-left: 10px;
+}
+
+.ypovoli input{
+    color:rgb(64, 64, 64);
+    font-size: 1.3rem;
+    border-radius: 8px;
+    border: none;
+    height: 40px;
+    background-color: rgb(203, 203, 203);
+    font-weight: bolder;
+    box-shadow: 0 5px 9px #00000050;
+}
+
+fieldset select{
+    border-radius: 8px;
+    border: none;
+    background-color:rgba(255, 249, 246, 0.661);
+}

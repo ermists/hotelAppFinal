@@ -1,0 +1,89 @@
+
+.box1,.box2,.box3{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    width: 400px;
+    height: fit-content;
+    padding: 15px;
+    margin-top:40px;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.846);
+    border:none;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px #00000050;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 253, 250, 0.868);
+}
+.col-4{
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    border: 1px solid;
+    align-items: center;
+    margin: 10px;
+    border:none;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px #00000050;
+}
+
+.img1{
+    background-image: url('img/breakfast.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img2{
+    background-image: url('img/lunch.jpg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img3{
+    background-image: url('img/dinner.jpg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+legend{
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(77, 43, 13);
+    background-color: rgba(255, 255, 255, 0.369);
+    border-radius: 8px;
+
+}
+
+h1{
+    background-color: transparent;
+    font-size: 2rem;
+}
+
+h{
+    font-size: 1.2rem;
+}
+
+.yg{
+    font-style: italic;
+}
+
+button{
+    margin: 20px;
+    height: 50px;
+    width: 120px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px #00000050;
+    background-color: rgb(203, 203, 203);
+}

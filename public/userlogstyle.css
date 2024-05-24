@@ -1,6 +1,6 @@
 .form-container {
     width: 350px;
-    height: 50vh;
+    height: 45vh;
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -12,7 +12,7 @@
     height: 90px;
     justify-content: center;
     align-items: center;
-    background-image: url('img/imgsea.jpg'); /* Path to your background image */
+    background-image: url('img/imgsea.jpg'); 
     background-size: 350px 200px;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,27 +27,28 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;   
-    background-image: url('img/bg_blur.png'); /* Path to your background image */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */   
+    background-image: url('img/bg_blur.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;  
 }
 
 fieldset {
 
     padding: 20px;
+    padding-bottom: 0px;
 }
 
 .neos {
     display: flex;
-    justify-content: center; /* Κεντράρει οριζόντια */
-    align-items: center; /* Κεντράρει κατακόρυφα */
+    justify-content: center; 
+    align-items: center; 
     margin-top: 10px;
 }
 
 .eisodos {
     display: flex;
-    justify-content: center; /* Κεντράρει οριζόντια */
+    justify-content: center; 
     align-items: center; 
     margin-top: 10px;
 }
@@ -83,8 +84,6 @@ fieldset input{
 
 legend{
     display:flex;
-  /*   width: 100%;
-    height: 109%; */
     justify-content: center;
     align-items: center;
     text-align: center;

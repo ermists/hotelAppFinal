@@ -15,9 +15,9 @@ html {
 }
 
 .container {
-            display: flex; /* Use flexbox */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
 }
 .container img{
     width: 95%;

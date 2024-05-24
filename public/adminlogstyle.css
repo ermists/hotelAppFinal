@@ -4,21 +4,20 @@ legend{
 form {
     background-color: rgba(255,255,255,0.7); 
     padding: 20px; 
-    border: none; /* Optional border */
-    border-radius: 8px; /* Optional rounded corners */
-    
+    border: none; 
+    border-radius: 8px;   
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Remove default body margin */
-    background-image: url('img/imgsea.jpg'); /* Path to your background image */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    height: 100vh;
+    margin: 0; 
+    background-image: url('img/imgsea.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     
         
 }
@@ -26,8 +25,8 @@ body {
 .form-container{
     padding: 20px;
     border: none;
-    border-radius: 8px; /* Rounded corners */
-    width: 300px; /*Fixed width for the form container */
+    border-radius: 8px;
+    width: 350px; 
 }
 
 
@@ -46,8 +45,25 @@ fieldset input{
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Το input πλαίσιο παίρνει 100% του πλάτους του γονικού του στοιχείου (της φόρμας) */
+    width: 100%; 
     padding: 20px;
     box-sizing: border-box;
     height: 1rem;
+}
+
+.neos input {
+    width: 180px;
+    border: none;
+    box-sizing: border-box;
+    text-decoration: underline;
+    text-shadow: #ccc;
+    color: rgba(13, 155, 120, 0.75);
+    background-color: transparent;
+
+}
+.neos {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 10px;
 }
