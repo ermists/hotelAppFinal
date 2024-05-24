@@ -188,3 +188,20 @@ export function addNewAdmin (req, res) {
         res.redirect('/newAdmin');
     }
 }
+
+
+export function newAdminShow (req, res, next) {
+    try {
+        res.render('newAdminform');
+    }catch (err) {
+        next(err);
+    }
+}
+
+export function newUserShow (req, res, next) {
+    try {
+        res.render('newUserform');
+    }catch (err) {
+        next(err);
+    }
+}

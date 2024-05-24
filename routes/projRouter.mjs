@@ -20,8 +20,10 @@ router.route('/userLogin').post(loginController.userDoLogin);
 router.get('/adminLogout', loginController.logout);
 router.get('/adminMain', loginController.checkAuthenticatedAdmin, loginController.adminMain);
 router.get('/userMain', loginController.checkAuthenticatedUser, loginController.userMain);
-router.get('/newAdmin', loginController.addNewAdmin);
-router.get('/newUser', loginController.addNewUser);
+router.get('/newAdmin', loginController.newAdminShow);
+router.route('/newAdmin').post(loginController.addNewAdmin);
+router.get('/newUser', loginController.newUserShow);
+router.route('/newUser').post(loginController.addNewUser);
 
 router.post('/changeResDate',loginController.checkAuthenticatedAdmin, projController.changeResDate);
 router.post('/changeResRoom',loginController.checkAuthenticatedAdmin, projController.changeResRoom);
@@ -30,7 +32,7 @@ router.get('/newRes', projController.loadNewRes);
 router.route('/newRes').post(projController.addNewRes);
 router.get('/aboutfood', projController.aboutFood);
 
-router.get('declareInterest', projController.declareInterestShow);
+router.get('/declareInterest', projController.declareInterestShow);
 router.route('/declareInterest').post(projController.declareInterestSubmit);
 
 router.get('/', projController.applicLoad);
