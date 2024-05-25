@@ -53,14 +53,15 @@ fieldset {
     margin-top: 10px;
 }
 
-.neos input {
-    width: 140px;
+.neos button{
+    width: 200px;
     border: none;
     box-sizing: border-box;
     text-decoration: underline;
     text-shadow: #ccc;
     color: rgba(13, 155, 120, 0.75);
     background-color: white;
+    font-size: 1.1rem;
 
 }
 

@@ -1,77 +1,24 @@
-h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:rgba(59, 26, 26, 0.324);
-    color: rgba(59, 26, 26, 0.9);
-    height: 4rem;
-    font-weight: 550;
-    
-}
-
 html {
     font-family: "Georgia", serif;
 	background-color: #323c41;
 }
 
-.container {
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-}
-.container img{
-    width: 95%;
-    height: 450px;
-    object-fit: cover;
-
-}
-header{
-    font-size: 1.5em;
-    font-weight: 450;
-    font-style: italic;
-}
-
 body{
     font-family: "Georgia", serif;
-    /* background-image: url('img/bg_blur.png');  
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; */    
 }
 
-p {
-    font-size: 1.2em;
+.welcome header{
+    text-align: center;
 }
-
-h2 {
-    font-size: 2em;
-    font-style: italic;
-}
-.reservation {
+.menu{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    
-}
-
-.adminlog {
-    display: flex;
-    flex-direction: row;
+    gap: 250px;
     justify-content: center;
+   
 }
 
-.reservation button{
-    background-color:rgba(105, 57, 9, 0.2);
-    color: rgba(59, 26, 26, 0.9);
-    border: none;
-    font-weight: bold;
+.menu buttons{
+    padding: 10 px;
 }
 
-.adminlog button{
-    background-color:rgba(105, 57, 9, 0.2);
-    color: rgba(59, 26, 26, 0.9);
-    border: none;
-    font-weight: bold;
-    height: 2rem;
-    width: 7rem;
-}
