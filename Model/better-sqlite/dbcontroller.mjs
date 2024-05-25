@@ -97,9 +97,11 @@ export let registerUser = function (username, password) {
         return { message: "Υπάρχει ήδη χρήστης με αυτό το όνομα" };
     } else {
         try {
+            let max = 1487485793;
+            let randomInt = Math.floor(Math.random() * max);
             const hashedPassword = bcrypt.hash(password, 10);
             const stmt = sql.prepare('INSERT INTO "SIMPLEUSER" VALUES (null,?, ?, ?)');
-            const info = stmt.run(/*nabalo random*/12,username, hashedPassword);
+            const info = stmt.run(randomInt,username, hashedPassword);
         } catch (error) {
             console.error('Error registering user:', err);
             throw(err);
@@ -114,9 +116,11 @@ export let registerAdmin = function (username, password) {
         return { message: "Υπάρχει ήδη χρήστης με αυτό το όνομα" };
     } else {
         try {
+            let max = 1487485793;
+            let randomInt = Math.floor(Math.random() * max);
             const hashedPassword = bcrypt.hash(password, 10);
             const stmt = sql.prepare('INSERT INTO "ADMIN" VALUES (null, ?, ?, ?)');
-            const info = stmt.run(/*nabalo random*/12,username, hashedPassword);
+            const info = stmt.run(randomInt,username, hashedPassword);
         } catch (error) {
             console.error('Error registering Admin:', err);
             throw(err);

@@ -163,7 +163,7 @@ export function addNewUser (req, res) {
     try {
         const registrationResult = model.registerUser(req.body.username, req.body.password);
         if (registrationResult.message) {
-            res.render('register-password', { message: registrationResult.message })
+            res.render('userRegister', { message: registrationResult.message })
         }
         else {
             res.redirect('/userLogin');
@@ -178,7 +178,7 @@ export function addNewAdmin (req, res) {
     try {
         const registrationResult = model.registerAdmin(req.body.username, req.body.password);
         if (registrationResult.message) {
-            res.render('register-password', { message: registrationResult.message })
+            res.render('adminRegister', { message: registrationResult.message })
         }
         else {
             res.redirect('/adminLogin');
@@ -192,7 +192,7 @@ export function addNewAdmin (req, res) {
 
 export function newAdminShow (req, res, next) {
     try {
-        res.render('newAdminform');
+        res.render('adminRegister', { message: '' });
     }catch (err) {
         next(err);
     }
@@ -200,7 +200,7 @@ export function newAdminShow (req, res, next) {
 
 export function newUserShow (req, res, next) {
     try {
-        res.render('newUserform');
+        res.render('userRegister', { message: '' });
     }catch (err) {
         next(err);
     }
