@@ -1,4 +1,5 @@
 import db from 'better-sqlite3';
+import bcrypt from 'bcrypt';
 
 const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
 
@@ -49,7 +50,7 @@ export function deleteRes (roomNo, custEmail, arrivalDate) {
 
 export let findUserByUsernamePassword = async (username, password) => {
     //Φέρε μόνο μια εγγραφή (το LIMIT 0, 1) που να έχει username και password ίσο με username και password 
-    const stmt = sql.prepare('SELECT username FROM "SIMPLEUSER" WHERE username = ? and password = ? LIMIT 0, 1');
+    const stmt = sql.prepare('SELECT userUsername FROM "SIMPLEUSER" WHERE userUsername = ? and userPassword = ? LIMIT 0, 1');
     try {
         const user = stmt.all(username, password);
     } catch (err) {
@@ -59,7 +60,7 @@ export let findUserByUsernamePassword = async (username, password) => {
 
 export let findAdminByUsernamePassword = async (username, password) => {
     //Φέρε μόνο μια εγγραφή (το LIMIT 0, 1) που να έχει username και password ίσο με username και password
-    const stmt = sql.prepare('SELECT username FROM "ADMIN" WHERE username = ? and password = ? LIMIT 0, 1');
+    const stmt = sql.prepare('SELECT adminUsername FROM "ADMIN" WHERE adminUsername = ? and adminPassword = ? LIMIT 0, 1');
     try {
         const user = stmt.all(username, password);
     }
@@ -70,7 +71,7 @@ export let findAdminByUsernamePassword = async (username, password) => {
 
 
 export let getAdminByUsername = (username) => {
-    const stmt = sql.prepare('SELECT id, username, password FROM "ADMIN" WHERE username = ? LIMIT 0, 1');
+    const stmt = sql.prepare('SELECT AdminID, adminUsername, adminPassword FROM "ADMIN" WHERE adminUsername = ? LIMIT 0, 1');
     try {
         const user = stmt.all(username);
         return user[0];
@@ -80,7 +81,7 @@ export let getAdminByUsername = (username) => {
 }
 
 export let getUserByUsername = (username) => {
-    const stmt = sql.prepare('SELECT id, username, password FROM "SIMPLEUSER" WHERE username = ? LIMIT 0, 1');
+    const stmt = sql.prepare('SELECT UserID, userUsername, userPassword FROM "SIMPLEUSER" WHERE userUsername = ? LIMIT 0, 1');
     try {
         const user = stmt.all(username);
         return user[0];
@@ -90,7 +91,7 @@ export let getUserByUsername = (username) => {
 }
 
 //Η συνάρτηση δημιουργεί έναν νέο χρήστη με password
-export let registerUser = function (username, password) {
+export let registerUser = async function (username, password) {
     // ελέγχουμε αν υπάρχει χρήστης με αυτό το username
     const userId = getUserByUsername(username);
     if (userId != undefined) {
@@ -99,17 +100,17 @@ export let registerUser = function (username, password) {
         try {
             let max = 1487485793;
             let randomInt = Math.floor(Math.random() * max);
-            const hashedPassword = bcrypt.hash(password, 10);
+            const hashedPassword = await bcrypt.hash(password, 10);
             const stmt = sql.prepare('INSERT INTO "SIMPLEUSER" VALUES (null,?, ?, ?)');
-            const info = stmt.run(randomInt,username, hashedPassword);
+            const info = stmt.run(randomInt,String(username), hashedPassword);
         } catch (error) {
-            console.error('Error registering user:', err);
-            throw(err);
+            console.error('Error registering user:', error);
+            throw(error);
         }
     }
 }
 
-export let registerAdmin = function (username, password) {
+export let registerAdmin = async function (username, password) {
     // ελέγχουμε αν υπάρχει χρήστης με αυτό το username
     const userId = getAdminByUsername(username);
     if (userId != undefined) {
@@ -118,12 +119,12 @@ export let registerAdmin = function (username, password) {
         try {
             let max = 1487485793;
             let randomInt = Math.floor(Math.random() * max);
-            const hashedPassword = bcrypt.hash(password, 10);
+            const hashedPassword = await bcrypt.hash(password, 10);
             const stmt = sql.prepare('INSERT INTO "ADMIN" VALUES (null, ?, ?, ?)');
-            const info = stmt.run(randomInt,username, hashedPassword);
+            const info = stmt.run(randomInt, String(username), hashedPassword);
         } catch (error) {
-            console.error('Error registering Admin:', err);
-            throw(err);
+            console.error('Error registering Admin:', error);
+            throw(error);
         }
     }
 }
@@ -133,7 +134,7 @@ export let declareInterest = function (SSN, actSelection, date) {
         const stmt = sql.prepare('INSERT INTO "DECLARATION" VALUES (?, ?, ?)');
         stmt.run(SSN, actSelection, date);
     } catch (error) {
-        console.error('Error declaring interest:', err);
-        throw(err);
+        console.error('Error declaring interest:', error);
+        throw(error);
     }
 }

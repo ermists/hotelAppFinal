@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import exphbs from 'express-handlebars';
 import router from './routes/projRouter.mjs';
 import adminSession from './appSetup/appSetupSession.mjs';
+import bodyParser from 'body-parser';
 
 const app = express()
 
@@ -23,6 +24,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use('/', router);
 
 app.engine('hbs', exphbs.engine({
@@ -33,8 +37,7 @@ app.set('view engine', 'hbs');
 
 export function errorHandler(err, req, res, next) {
     console.error(err);
-    res.status(500).send('Κάτι πήγε στραβά');
-    next();
+    res.status(500).redirect('/');
 }
 
 app.use(errorHandler);

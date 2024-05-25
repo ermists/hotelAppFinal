@@ -53,7 +53,7 @@ export function adminDoLogin (req, res, next) {
     try {
 
         if (req.body.username != ""|| req.body.password != "" || req.body.username === undefined || req.body.password === undefined) {
-            const user = model.getAdminByUsername(req.body.username); //prepi na epsitrefi kai to password apo ti basi !!!!!
+            const user = model.getAdminByUsername(String(req.body.username)); //prepi na epsitrefi kai to password apo ti basi !!!!!
         }else{
             res.render('adminLogin', { message: 'Δεν έχετε εισάγει όνομα χρήστη η΄κωδικό πρόσβασης' });
         }
@@ -162,7 +162,7 @@ export function userMain (req, res) {
 export function addNewUser (req, res) {
     try {
         const registrationResult = model.registerUser(req.body.username, req.body.password);
-        if (registrationResult.message) {
+        if (registrationResult.message !== undefined) {
             res.render('userRegister', { message: registrationResult.message })
         }
         else {
@@ -179,7 +179,7 @@ export function addNewAdmin (req, res) {
         console.log('first check')
         const registrationResult = model.registerAdmin(req.body.username, req.body.password);
         console.log('second check')
-        if (registrationResult.message) {
+        if (registrationResult.message !== undefined) {
             res.render('adminRegister', { message: registrationResult.message })
         }
         else {
