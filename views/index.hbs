@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/stylepage1.css">
+<body>    
+    <section class="welcome">
+        <header> Welcome to El Dorado Boutique Hotel</header><br>
+        <div class="menu">
+            <button type="button" onclick="window.location.href = '/rooms';">Δωμάτια</button>
+            <button type="button" onclick="window.location.href = '/aboutfood';">Διατροφή</button>
+            <button type="button" onclick="window.location.href = '/newRes';">Kάντε Κράτηση</button>
+            <button type="button" onclick="window.location.href = '/newRes';">About Us</button>
+            <button type="button" onclick="window.location.href = '/userLogin';">LogIn</button>
+        </div>
+        <hr>
+    </section>
+
+    <section>
+        <header>Οι εγκαταστάσεις μας</header>
+        <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide">
+                                <header>Ciudad Juarez</header>
+                                <hr>
+                                    <img src="/img/dom51.jpeg" alt="Φωτογραφία Δωματίου 1" >
+                            </div>
+                            <div class="slide">
+                                <header>Ciudad Juarez</header>
+                                <hr>
+                                    <img src="/img/dom52.jpg" alt="Φωτογραφία Δωματίου 2" >
+                            </div>
+                        </div>
+                        <div class="navigation">
+                                <button class="prev" onclick="prevSlide()">❮</button>
+                                <button class="next" onclick="nextSlide()">❯</button> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+    </section>
+    <section>
+        <header>Πληροφορίες</header>
+        <div class="adminlog">
+            <button type="button" onclick="window.location.href = '/adminLogin';">Admin</button>
+        </div>
+    </section>
+<script src="roomsimg.mjs"></script> 
+</body>
