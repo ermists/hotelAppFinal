@@ -10,14 +10,13 @@ if (process.env.NODE_ENV !== 'production') {
 const router = express.Router();
 const projController = await import(`../Controller/projController.mjs`)
 const loginController = await import(`../Controller/loginLogoutController.mjs`)
-router.route('/page2.html').get((req,res)=>{res.redirect('/newRes')});
 
 
 router.get('/adminLogin', loginController.adminLoginshow);
 router.route('/adminLogin').post(loginController.adminDoLogin);
 router.get('/userLogin', loginController.userLoginshow);
 router.route('/userLogin').post(loginController.userDoLogin);
-router.get('/adminLogout', loginController.logout);
+router.get('/logout', loginController.logout);
 router.get('/adminMain', loginController.checkAuthenticatedAdmin, loginController.adminMain);
 router.get('/userMain', loginController.checkAuthenticatedUser, loginController.userMain);
 router.get('/newAdmin', loginController.newAdminShow);
@@ -35,6 +34,7 @@ router.get('/aboutfood', projController.aboutFood);
 router.get('/declareInterest', projController.declareInterestShow);
 router.route('/declareInterest').post(projController.declareInterestSubmit);
 
+router.get('/loadRooms', projController.loadRooms);
 router.get('/', projController.applicLoad);
 
 export default router;

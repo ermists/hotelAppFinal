@@ -25,8 +25,8 @@ export function addNewRes (req, res, next) {
         phone = req.body.telephone;
         
         //send the values to db interface
-        model.addNewRes(23562437247826/SSN,clientName,surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room, PeopleNo, food);
-        res.redirect('/userMain');
+        model.addNewRes(clientName,surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room, PeopleNo, food);
+        res.redirect('/rooms');
     }catch (err) {
         console.error(err);
         res.redirect('/newRes');
@@ -82,7 +82,7 @@ export function deleteRes (req, res, next) {
 
 export function applicLoad (req, res, next) {
     try {
-        res.render('rooms');
+        res.render('index');
     }catch (err) {
         next(err);
     }
@@ -126,3 +126,10 @@ export function declareInterestSubmit (req, res, next) {
     }
 }
 
+export function loadRooms (req, res, next) {
+    try {
+        res.render('rooms');
+    }catch (err) {
+        next(err);
+    }
+}
