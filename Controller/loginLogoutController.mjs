@@ -176,7 +176,9 @@ export function addNewUser (req, res) {
 
 export function addNewAdmin (req, res) {
     try {
+        console.log('first check')
         const registrationResult = model.registerAdmin(req.body.username, req.body.password);
+        console.log('second check')
         if (registrationResult.message) {
             res.render('adminRegister', { message: registrationResult.message })
         }
@@ -184,7 +186,7 @@ export function addNewAdmin (req, res) {
             res.redirect('/adminLogin');
         }
     } catch (error) {
-        console.error('registration error');
+        console.log(error);
         res.redirect('/newAdmin');
     }
 }
