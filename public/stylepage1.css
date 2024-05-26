@@ -5,20 +5,158 @@ html {
 
 body{
     font-family: "Georgia", serif;
+    margin:0px;
+    background-image: url('img/bg_blur.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .welcome header{
     text-align: center;
+    font-size: 2rem;
+    padding-top: 20px;
+    color: rgb(77, 43, 13);
+    font-weight: 600;
 }
 .menu{
     display: flex;
     flex-direction: row;
-    gap: 250px;
     justify-content: center;
-   
+    gap: 12%;
+     
 }
 
-.menu buttons{
-    padding: 10 px;
+.slide img{
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
 }
 
+.slider{
+    border-radius: 8px;
+    box-shadow: 0 5px 9px #00000050;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 57%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.navigation button{
+    background-color: transparent;
+    border: none;
+    font-size: xx-large;
+    color: rgba(255, 255, 255, 0.626);
+}
+
+.navigation button:hover {
+    color: rgba(255, 255, 255, 1);
+} 
+
+.display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgb(77, 43, 13);
+}
+
+.row {
+    width: 100%;
+}
+
+.welcome{
+    background: linear-gradient(to bottom,  rgba(118, 65, 20, 0.5), rgba(255, 255, 255, 0));
+    height: 150px;
+}
+
+.menu button{
+    height: fit-content;
+    font-size:larger;
+    border:none;
+    background-color:transparent;
+    color: rgba(77, 43, 13, 0.906) ;
+    border-radius: 8px;
+    margin-top: 1%;
+}
+
+.menu button:hover{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: rgba(118, 65, 20, 0.5) ;
+}
+
+.infos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5%;
+    height: 230px;
+    background-color: rgba(126, 81, 41, 0.686) ;
+}
+
+.map{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#map{
+    border-radius: 8px;
+}
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(77, 43, 13, 0.906) ;
+}
+.about header{
+    font-size: 1.2rem;
+    font-weight: 600;
+    
+}
+
+.about h{
+    font-size: 1.1rem;
+}
+
+.adminlogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(77, 43, 13, 0.906) ;
+}
+
+.adminlogin header{
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.adminlogin button{
+    border-color: rgba(77, 43, 13, 0.906) ;
+    background-color: transparent;
+    border-radius: 8px;
+    color: rgb(77, 43, 13) ;
+    border-style: solid ;
+}
+
+.adminlogin button:hover{
+    border-color: blanchedalmond;
+}
