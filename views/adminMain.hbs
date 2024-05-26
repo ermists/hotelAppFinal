@@ -8,15 +8,15 @@
                 
                 <header>Αλλαγή Ημερομηνίας</header>
                 <br><br>
-                Αριθμός Δωματίου: <input type="number" id="roomNo">
+                Αριθμός Δωματίου: <input type="number" name="roomNo" id="roomNo">
                 <br><br>
-                Email Πελάτη: <input type="email" id="CustEmail">
+                Email Πελάτη: <input type="email" name="CustEmail" id="CustEmail">
                 <br><br>
-                Παλιά Ημερομηνία Άφιξης: <input type="date" id="oldarrivalDate">
+                Παλιά Ημερομηνία Άφιξης: <input type="date" name="oldarrivalDate" id="oldarrivalDate">
                 <br><br>
-                Νέα Ημερομηνία Άφιξης: <input type="date" id="newarrivalDate">
+                Νέα Ημερομηνία Άφιξης: <input type="date" name="newarrivalDate" id="newarrivalDate">
                 <br><br>
-                Νέα Ημερομηνία Αναχώρησης: <input type="date" id="newdepartureDate">
+                Νέα Ημερομηνία Αναχώρησης: <input type="date" name="newdepartureDate" id="newdepartureDate">
                 <br><br>
                 <input type="submit" value="Αλλαγή Ημερομηνίας">
             </form>
@@ -24,11 +24,11 @@
             <form action="/deleteRes" method="POST">
                 <header>Διαγραφή Κράτησης</header>
                 <br><br>
-                Αριθμός Δωματίου: <input type="number" id="roomNotodelete">
+                Αριθμός Δωματίου: <input type="number" name="roomNotodelete" id="roomNotodelete">
                 <br><br>
-                Email Πελάτη: <input type="email" id="CustEmailtodelete">
+                Email Πελάτη: <input type="email" name="CustEmailtodelete" id="CustEmailtodelete">
                 <br><br>
-                Ημερομηνία Άφιξης: <input type="date" id="arrivalDatetodelete">
+                Ημερομηνία Άφιξης: <input type="date" name="arrivalDatetodelete" id="arrivalDatetodelete">
                 <br><br>
                 <input type="submit" value="Διαγραφή">
             </form>
@@ -36,13 +36,13 @@
             <form action="/changeResRoom" method="POST">
                 <header>Αλλαγή Δωματίου</header>
                 <br><br>
-                Αριθμός Δωματίου: <input type="number" id="roomNotochange">
+                Αριθμός Δωματίου: <input type="number" name="roomNotochange" id="roomNotochange">
                 <br><br>
-                Email Πελάτη: <input type="email" id="CustEmailtochange">
+                Email Πελάτη: <input type="email" name="CustEmailtochange" id="CustEmailtochange">
                 <br><br>
-                Νέος Αριθμός Δωματίου: <input type="number" id="newroomNo">
+                Νέος Αριθμός Δωματίου: <input type="number" name="newroomNo" id="newroomNo">
                 <br><br>
-                Ημερομηνία Άφιξης: <input type="date" id="arrivalDatetochange">
+                Ημερομηνία Άφιξης: <input type="date" name="arrivalDatetochange" id="arrivalDatetochange">
                 <br><br>
                 <input type="submit" value="Αλλαγή Δωματίου">
             </form>

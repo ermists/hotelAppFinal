@@ -19,19 +19,16 @@ export function addNewRes (SSN, arrivalDate, departureDate, room, peopleNo, food
     try {
         let max = 18736534;
         let randomInt = Math.floor(Math.random() * max);
-        console.log('check2')
         const stmt = sql.prepare('INSERT INTO "RESERVATION" VALUES (?, ?, ?, ?, ?, ?)');
         if (typeof room === 'string') {
             room = [room];
         }
         stmt.run(randomInt, SSN, arrivalDate, departureDate, room, peopleNo);
-        console.log('check3')
         const stmt2 = sql.prepare('INSERT INTO "FOODRESERVCON" VALUES (?, ?)');
         if (typeof food === 'string') {
             food = [food];
         }
         for (let i of food) {
-            console.log(i)
             stmt2.run(randomInt, i);
         }
         console.log('check4')
@@ -44,12 +41,16 @@ export function addNewRes (SSN, arrivalDate, departureDate, room, peopleNo, food
 }
 
 export function changeResDate (roomNo, custEmail, oldArrivalDate, newArrivalDate, newDepartureDate) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
     try {
-        const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
-        const stmt = sql.prepare('UPDATE "RESERVATION" SET "Arrival" = ? AND "Departure" = ? WHERE "RoomNumber" = ? AND "Arrrival" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?)');
+        console.log('check1')
+        const stmt = sql.prepare('UPDATE "RESERVATION" SET "Arrival" = ? AND "Departure" = ? WHERE "RoomNumber" = ? AND "Arrival" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?)');
+        console.log('check2')
         stmt.run(newArrivalDate, newDepartureDate, roomNo, oldArrivalDate, custEmail);
+        console.log('check3')
         sql.close();
     }catch (err) {
+        console.log('check5')
         sql.close();
         console.error('Error changing reservation date:', err);
         throw(err);
@@ -57,8 +58,8 @@ export function changeResDate (roomNo, custEmail, oldArrivalDate, newArrivalDate
 }
 
 export function changeResRoom (roomNo, newRoomNo, custEmail, arrivalDate) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
     try {
-        const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
         const stmt = sql.prepare('UPDATE "RESERVATION" SET "RoomNumber" = ? WHERE "RoomNumber" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?) AND "Arrival" = ?');
         stmt.run(newRoomNo, roomNo, custEmail, arrivalDate);
         sql.close();
@@ -70,8 +71,8 @@ export function changeResRoom (roomNo, newRoomNo, custEmail, arrivalDate) {
 }
 
 export function deleteRes (roomNo, custEmail, arrivalDate) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
     try {
-        const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
         const stmt = sql.prepare('DELETE FROM "RESERVATION" WHERE "RoomNumber" = ? AND SSN IN (SELECT SSN FROM "USER" WHERE "Email" = ?) AND "Arrival" = ?');
         stmt.run(roomNo, custEmail, arrivalDate);
         sql.close();

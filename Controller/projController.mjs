@@ -30,7 +30,6 @@ export function addNewRes (req, res) {
         }
 
         if (model.checkRes(arrivalDate, departureDate, room)) {
-            console.log('check1')
             model.addNewRes(SSN, arrivalDate, departureDate, room, PeopleNo, food);
             res.redirect('/userMain');
         } else {
@@ -68,7 +67,7 @@ export function changeResRoom (req, res, next) {
     try {
         let roomNo = req.body.roomNotochange;
         let newRoomNo = req.body.newRoomNo;
-        let custEmail = req.body.custEmailtochange;
+        let custEmail = req.body.CustEmailtochange;
         let arrivalDate = req.body.arrivalDatetochange;
 
         model.changeResRoom(roomNo, newRoomNo, custEmail, arrivalDate);
@@ -82,7 +81,7 @@ export function changeResRoom (req, res, next) {
 export function deleteRes (req, res, next) {
     try {
         let roomNo = req.body.roomNotodelete;
-        let custEmail = req.body.custEmailtodelete;
+        let custEmail = req.body.CustEmailtodelete;
         let arrivalDate = req.body.arrivalDatetodelete;
 
         model.deleteRes(roomNo, custEmail, arrivalDate);
