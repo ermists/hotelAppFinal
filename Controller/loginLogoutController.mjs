@@ -113,7 +113,7 @@ export let checkAuthenticatedUser = function (req, res, next) {
         console.log("User is authenticated", req.originalUrl);
         try{
             let x = model.getUserByUsername(req.session.loggedUserId);
-        }catch(err){
+        }catch(err){    
             res.redirect('/userLogin');
         }
         //Καλεί τον επόμενο χειριστή (handler) του αιτήματος

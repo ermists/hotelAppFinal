@@ -3,15 +3,16 @@ import bcrypt from 'bcrypt';
 
 
 export function addNewRes (name, surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room,peopleNo) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
     try {
-        const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
         let max = 18736534;
         let randomInt = Math.floor(Math.random() * max);
+        const stmt2 = sql.prepare('INSERT INTO "USER" VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+        stmt2.run(SSN, name, surname, street, email, telephone, city, postalCode);
+
         const stmt = sql.prepare('INSERT INTO "RESERVATION" VALUES (?, ?, ?, ?, ?, ?)');
         stmt.run(randomInt, SSN, arrivalDate, departureDate, room, peopleNo);
 
-        const stmt2 = sql.prepare('INSERT INTO "USER" VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-        stmt2.run(SSN, name, surname, street, city, postalCode, email, telephone);
         sql.close();
     }catch (err) {
         sql.close();
