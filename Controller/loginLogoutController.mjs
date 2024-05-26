@@ -18,22 +18,17 @@ export function userLoginshow (req, res, next) {
     }
 }
 
-export function userDoLogin (req, res, next) {
+export async function userDoLogin (req, res, next) {
     try {
-        if (req.body.username != "" || req.body.password != "" || req.body.username === undefined || req.body.password === undefined) {
-            const user = model.getUserByUsername(req.body.username); //prepi na epsitrefi kai to password apo ti basi !!!!!
-        }else{
-            res.render('userLogin', { message: 'Δεν έχετε εισάγει όνομα χρήστη ή κωδικό πρόσβασης' });
-        }
-
-        if (user == undefined || !user.password || !user.id) {
+        const user = await model.getUserByUsername(req.body.username); 
+        if (user == undefined || !user.userPassword || !user.UserID) {
             res.render('userLogin', { message: 'Δε βρέθηκε αυτός ο χρήστης' });
         }
         else {
-            const match = bcrypt.compare(req.body.password, user.password);
+            const match = await bcrypt.compare(req.body.password, user.userPassword);
             if (match) {
                 //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
-                req.session.loggedUserId = user.username;
+                req.session.loggedUserId = user.userUsername;
                 //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
                 // res.redirect("/");            
                 const redirectTo = "/userMain";
@@ -49,23 +44,18 @@ export function userDoLogin (req, res, next) {
     }
 }
 
-export function adminDoLogin (req, res, next) {
+export async function adminDoLogin (req, res, next) {
     try {
-
-        if (req.body.username != ""|| req.body.password != "" || req.body.username === undefined || req.body.password === undefined) {
-            const user = model.getAdminByUsername(String(req.body.username)); //prepi na epsitrefi kai to password apo ti basi !!!!!
-        }else{
-            res.render('adminLogin', { message: 'Δεν έχετε εισάγει όνομα χρήστη η΄κωδικό πρόσβασης' });
-        }
-
-        if (user == undefined || !user.password || !user.id) {
+        const user = model.getAdminByUsername(req.body.username); 
+        
+        if (user == undefined || !user.adminPassword || !user.adminUsername) {
             res.render('adminLogin', { message: 'Δε βρέθηκε αυτός ο χρήστης' });
         }
         else {
-            const match = bcrypt.compare(req.body.password, user.password);
+            const match = await bcrypt.compare(req.body.password, user.adminPassword);
             if (match) {
                 //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
-                req.session.loggedUserId = user.username;
+                req.session.loggedUserId = user.adminUsername;
                 //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
                 // res.redirect("/");            
                 const redirectTo = "/adminMain";
@@ -73,6 +63,7 @@ export function adminDoLogin (req, res, next) {
                 res.redirect(redirectTo);
             }
             else {
+                console.log('check3')
                 res.render('adminLogin', { message: 'Ο κωδικός πρόσβασης είναι λάθος' })
             }
         }
@@ -176,9 +167,7 @@ export function addNewUser (req, res) {
 
 export function addNewAdmin (req, res) {
     try {
-        console.log('first check')
         const registrationResult = model.registerAdmin(req.body.username, req.body.password);
-        console.log('second check')
         if (registrationResult.message !== undefined) {
             res.render('adminRegister', { message: registrationResult.message })
         }

@@ -19,16 +19,16 @@ router.route('/userLogin').post(loginController.userDoLogin);
 router.get('/logout', loginController.logout);
 router.get('/adminMain', loginController.checkAuthenticatedAdmin, loginController.adminMain);
 router.get('/userMain', loginController.checkAuthenticatedUser, loginController.userMain);
-router.get('/newAdmin', loginController.newAdminShow);
-router.route('/newAdmin').post(loginController.addNewAdmin);
+router.get('/newAdmin', loginController.checkAuthenticatedAdmin,loginController.newAdminShow);
+router.route('/newAdmin').post(loginController.checkAuthenticatedAdmin,loginController.addNewAdmin);
 router.get('/newUser', loginController.newUserShow);
 router.route('/newUser').post(loginController.addNewUser);
 
 router.post('/changeResDate',loginController.checkAuthenticatedAdmin, projController.changeResDate);
 router.post('/changeResRoom',loginController.checkAuthenticatedAdmin, projController.changeResRoom);
 router.post('/deleteRes',loginController.checkAuthenticatedAdmin, projController.deleteRes);
-router.get('/newRes', projController.loadNewRes);
-router.route('/newRes').post(projController.addNewRes);
+router.get('/newRes', loginController.checkAuthenticatedUser,projController.loadNewRes);
+router.route('/newRes').post(loginController.checkAuthenticatedUser,projController.addNewRes);
 router.get('/aboutfood', projController.aboutFood);
 
 router.get('/declareInterest', projController.declareInterestShow);
