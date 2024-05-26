@@ -1,12 +1,12 @@
 import session from 'express-session'
 
-let taskListSession
+let adminSession
 
-taskListSession = session({
+adminSession = session({
     secret: process.env.SESSION_SECRET || 'secret',
     cookie: { maxAge: 60000 },
     resave: false,
     saveUninitialized: false
 });
 
-export default taskListSession;
+export default adminSession;

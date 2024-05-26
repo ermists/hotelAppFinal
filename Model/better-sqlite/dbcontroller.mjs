@@ -1,18 +1,40 @@
 import db from 'better-sqlite3';
 import bcrypt from 'bcrypt';
 
+export function addNewUser (name, surname, SSN, street, city, postalCode, email, telephone) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
+    try {
+        const stmt = sql.prepare('INSERT INTO "USER" VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+        stmt.run(SSN, name, surname, street, email, telephone, city, postalCode);
+        sql.close();
+    }catch (err) {
+        sql.close();
+        console.error('Error creating new user:', err);
+        throw(err);
+    }
+}
 
-export function addNewRes (name, surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room,peopleNo) {
+export function addNewRes (SSN, arrivalDate, departureDate, room, peopleNo, food) {
     const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
     try {
         let max = 18736534;
         let randomInt = Math.floor(Math.random() * max);
-        const stmt2 = sql.prepare('INSERT INTO "USER" VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-        stmt2.run(SSN, name, surname, street, email, telephone, city, postalCode);
-
+        console.log('check2')
         const stmt = sql.prepare('INSERT INTO "RESERVATION" VALUES (?, ?, ?, ?, ?, ?)');
+        if (typeof room === 'string') {
+            room = [room];
+        }
         stmt.run(randomInt, SSN, arrivalDate, departureDate, room, peopleNo);
-
+        console.log('check3')
+        const stmt2 = sql.prepare('INSERT INTO "FOODRESERVCON" VALUES (?, ?)');
+        if (typeof food === 'string') {
+            food = [food];
+        }
+        for (let i of food) {
+            console.log(i)
+            stmt2.run(randomInt, i);
+        }
+        console.log('check4')
         sql.close();
     }catch (err) {
         sql.close();
@@ -59,34 +81,6 @@ export function deleteRes (roomNo, custEmail, arrivalDate) {
         throw(err);
     }
 }
-
-export let findUserByUsernamePassword = async (username, password) => {
-    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
-    //Φέρε μόνο μια εγγραφή (το LIMIT 0, 1) που να έχει username και password ίσο με username και password 
-    const stmt = sql.prepare('SELECT userUsername FROM "SIMPLEUSER" WHERE userUsername = ? and userPassword = ? LIMIT 0, 1');
-    try {
-        const user = stmt.all(username, password);
-        sql.close();
-    } catch (err) {
-        sql.close();
-        return false;
-    }
-}
-
-export let findAdminByUsernamePassword = async (username, password) => {
-    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
-    //Φέρε μόνο μια εγγραφή (το LIMIT 0, 1) που να έχει username και password ίσο με username και password
-    const stmt = sql.prepare('SELECT adminUsername FROM "ADMIN" WHERE adminUsername = ? and adminPassword = ? LIMIT 0, 1');
-    try {
-        const user = stmt.all(username, password);
-        sql.close();
-    }
-    catch (err) {
-        sql.close();
-        return false;
-    }
-}
-
 
 export let getAdminByUsername = function (username)  {
     const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
@@ -178,6 +172,40 @@ export let declareInterest = function (SSN, actSelection, date) {
     } catch (error) {
         sql.close();
         console.error('Error declaring interest:', error);
+        throw(error);
+    }
+}
+
+export function getClientbySSN (SSN) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
+    try {
+        const stmt = sql.prepare('SELECT * FROM "USER" WHERE SSN = ?');
+        const user = stmt.all(SSN);
+        sql.close();
+        if (user.length==0) {
+            return undefined;
+        }
+        return user[0];
+    } catch (error) {
+        sql.close();
+        console.error('Error getting user by SSN:', error);
+        throw(error);
+    }
+}
+
+export function checkRes (arrivalDate, departureDate, room) {
+    const sql = new db('./model/db/hotelProjectDB.db',{fileMustExist: true});
+    try {
+        const stmt = sql.prepare('SELECT * FROM "RESERVATION" WHERE "RoomNumber" = ? AND "Arrival" <= ? AND "Departure" >= ?');
+        const res = stmt.all(room, arrivalDate, departureDate);
+        sql.close();
+        if (res.length==0) {
+            return true;
+        }
+        return false;
+    } catch (error) {
+        sql.close();
+        console.error('Error checking reservation:', error);
         throw(error);
     }
 }

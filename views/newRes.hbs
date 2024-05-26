@@ -15,26 +15,26 @@
                             <legend>Στοιχεία Πελάτη</legend>
             
                             <fieldset>
-                                Όνομα: <input type="text" name="name" id="name" required><br><br>
-                                Επώνυμο: <input type="text" name="surname" id="surname" required><br><br>
-                                S.S.N.: <input type="text" name="SSN" id="SSN" required><br><br>
+                                Όνομα: <input type="text" name="name" id="name" value="{{formData.name}}" required><br><br>
+                                Επώνυμο: <input type="text" name="surname" id="surname" value="{{formData.surname}}" required><br><br>
+                                S.S.N.: <input type="text" name="SSN" id="SSN" value="{{formData.SSN}}" required><br><br>
                             </fieldset>
                             
                 </div>
                 <div class="box">
                         <fieldset>
                             <legend>Στοιχεία Διεύθυνσης</legend>
-                            Οδός και Αριθμός: <input type="text" name="street" id="street"><br><br>
-                            Πόλη: <input type="text" name="city" id="city"><br><br>
-                            ΤK: <input type="text" name="postal_code" id="postal_code"><br><br>
+                            Οδός και Αριθμός: <input type="text" name="street" id="street" value="{{formData.street}}"><br><br>
+                            Πόλη: <input type="text" name="city" id="city" value="{{formData.city}}"><br><br>
+                            ΤK: <input type="text" name="postal_code" id="postal_code" value="{{formData.postal_code}}" ><br><br>
                         </fieldset>
                     
                 </div>
                 <div class="box">
                         <fieldset>
                             <legend>Στοιχεία Επικοινωνίας</legend>
-                            Τηλέφωνο: <input type="tel" name="telephone" id="telephone" required><br><br>
-                            Email: <input type="email" name="email" id="email" required><br><br>
+                            Τηλέφωνο: <input type="tel" name="telephone" id="telephone" value="{{formData.telephone}}" required><br><br>
+                            Email: <input type="email" name="email" id="email" value="{{formData.email}}" required><br><br>
                         </fieldset>
                       
                  
@@ -47,28 +47,28 @@
                         
                         <fieldset>
                             <h5>Δωμάτιο:</h5>
-                            <input type="radio" name="room" id="room" value="A">
+                            <input type="radio" name="room" id="room1" value="1">
                             <label for="roomA">San Jose (Δίκλινο-Budget)</label><br>
-                            <input type="radio" name="room" id="room" value="B">
+                            <input type="radio" name="room" id="room2" value="2">
                             <label for="roomB">Veracruz (Δίκλινο-Luxurious)</label><br>
-                            <input type="radio" name="room" id="room" value="C">
+                            <input type="radio" name="room" id="room3" value="3">
                             <label for="roomC">Cordoba (Τετράκλινο-Budget)</label><br>
-                            <input type="radio" name="room" id="room" value="D">
+                            <input type="radio" name="room" id="room4" value="4">
                             <label for="roomD">Guadalajara (Τετράκλινο-Luxurious)</label><br>
-                            <input type="radio" name="room" id="room" value="E">
+                            <input type="radio" name="room" id="room5" value="5">
                             <label for="roomE">Ciudad Juarez (Εξάκλινο-Luxurious)</label><br>
                         </fieldset>
                         <hr>
     
                         <fieldset>
                             <h5>Αριθμός Ατόμων:</h5>
-                            <select>
-                            <option name="PeopleNo" id="PeopleNo" value="1">1</option>
-                            <option name="PeopleNo" id="PeopleNo" value="2">2</option>
-                            <option name="PeopleNo" id="PeopleNo" value="3">3</option>
-                            <option name="PeopleNo" id="PeopleNo" value="4">4</option>
-                            <option name="PeopleNo" id="PeopleNo" value="5">5</option>
-                            <option name="PeopleNo" id="PeopleNo" value="6">6</option>
+                            <select name="PeopleNo">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                             </select>
                         </fieldset>
                         <hr>
@@ -88,19 +88,19 @@
                             </legend>
                             
                         
-                            <input type="checkbox" name="food" id="food" value="A">
+                            <input type="checkbox" name="food" id="food1" value="1">
                             <label for="breakfast1">Πρωινό Απλό</label><br>
-                            <input type="checkbox" name="food" id="food" value="B">
+                            <input type="checkbox" name="food" id="food2" value="2">
                             <label for="breakfast2">Πρωινό Buffet</label><br>
-                            <input type="checkbox" name="food" id="food" value="C">
+                            <input type="checkbox" name="food" id="food3" value="3">
                             <label for="lunch1">Μεσημεριανό Απλό</label><br>
-                            <input type="checkbox" name="food" id="food" value="D">
+                            <input type="checkbox" name="food" id="food4" value="4">
                             <label for="lunch2">Μεσημεριανό Buffet</label><br>
-                            <input type="checkbox" name="food" id="food" value="E">
+                            <input type="checkbox" name="food" id="food5" value="5">
                             <label for="dinner1">Δείπνο Απλό</label><br>
-                            <input type="checkbox" name="food" id="food" value="F">
+                            <input type="checkbox" name="food" id="food6" value="6">
                             <label for="dinner2">Δείπνο Buffet</label><br>
-                            <input type="checkbox" name="food" id="food" value="G">
+                            <input type="checkbox" name="food" id="food7" value="7">
                             <label for="dinner3">Δείπνο Valentine's</label>
                             <br>
                         </fieldset>
