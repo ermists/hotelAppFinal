@@ -4,6 +4,7 @@ import exphbs from 'express-handlebars';
 import router from './routes/projRouter.mjs';
 import adminSession from './appSetup/appSetupSession.mjs';
 import bodyParser from 'body-parser';
+import flash from 'express-flash';
 
 const app = express()
 
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(adminSession);
+app.use(flash());
 
 app.use(express.static('public'));
 

@@ -24,12 +24,24 @@ export function addNewRes (req, res) {
         let email = req.body.email;
         let telephone = req.body.telephone;
         
-        //send the values to db interface
-        model.addNewRes(clientName, surname, SSN, street, city, postalCode, email, telephone, arrivalDate, departureDate, room, PeopleNo, food);
-        res.redirect('/userMain');
+        let existingUser = model.getClientbySSN(SSN);
+        if (existingUser == undefined) {
+            model.addNewUser(clientName, surname, SSN, street, city, postalCode, email, telephone);
+        }
+
+        if (model.checkRes(arrivalDate, departureDate, room)) {
+            console.log('check1')
+            model.addNewRes(SSN, arrivalDate, departureDate, room, PeopleNo, food);
+            res.redirect('/userMain');
+        } else {
+            req.seesion.loggedUserID = req.session.loggedUserID;
+            req.session.formData = req.body;
+            res.redirect('/newRes');
+        }
     }catch (err) {
-        console.log('check4')
         console.error(err);
+        req.seesion.loggedUserID = req.session.loggedUserID;
+        req.session.formData = req.body;
         res.redirect('/newRes');
     }
 }
@@ -91,7 +103,9 @@ export function applicLoad (req, res, next) {
 
 export function loadNewRes (req, res, next) {
     try {
-        res.render('newRes');
+        let formData = req.session.formData || {};
+        req.session.formData = {};
+        res.render('newRes', {formData: formData});
     }catch (err) {
         next(err);
     }
