@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     border: 1px solid;
-    width: 400px;
+    width: 80%;
     height: fit-content;
     padding: 15px;
     margin-top:40px;
@@ -24,7 +24,7 @@ body{
 .col-4{
     display: flex;
     flex-direction: column;
-    width: 480px;
+    width: 30%;
     border: 1px solid;
     align-items: center;
     margin: 10px;
@@ -86,4 +86,10 @@ button{
     border-radius: 8px;
     box-shadow: 0 6px 10px #00000050;
     background-color: rgb(203, 203, 203);
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

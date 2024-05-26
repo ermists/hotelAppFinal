@@ -54,7 +54,7 @@ fieldset {
 }
 
 .neos button{
-    width: 200px;
+    width:fit-content;
     border: none;
     box-sizing: border-box;
     text-decoration: underline;
