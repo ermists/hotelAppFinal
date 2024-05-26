@@ -62,9 +62,3 @@ fieldset input{
     font-size: 1.1rem;
 
 }
-.neos {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-bottom: 10px;
-}

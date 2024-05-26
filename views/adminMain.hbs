@@ -1,9 +1,12 @@
+<link rel="stylesheet" href="/adminstylemain.css">
 <body>    
-         <div style="text-align: left;">
-            <h1>Καλώς ήρθατε στην Σελίδα Διαχειριστή</h1>
+    <div class="banner">
+        <header>Διαχείριση Κρατήσεων</header>
+    </div>
+    <div class="form-container">
             <form action="/changeResDate" method="POST">
                 
-                <h2>Αλλαγή Ημερομηνίας</h2>
+                <header>Αλλαγή Ημερομηνίας</header>
                 <br><br>
                 Αριθμός Δωματίου: <input type="number" id="roomNo">
                 <br><br>
@@ -16,11 +19,10 @@
                 Νέα Ημερομηνία Αναχώρησης: <input type="date" id="newdepartureDate">
                 <br><br>
                 <input type="submit" value="Αλλαγή Ημερομηνίας">
-                <br><br><br>
             </form>
 
             <form action="/deleteRes" method="POST">
-                <h3>Διαγραφή Κράτησης</h3>
+                <header>Διαγραφή Κράτησης</header>
                 <br><br>
                 Αριθμός Δωματίου: <input type="number" id="roomNotodelete">
                 <br><br>
@@ -29,11 +31,10 @@
                 Ημερομηνία Άφιξης: <input type="date" id="arrivalDatetodelete">
                 <br><br>
                 <input type="submit" value="Διαγραφή">
-                <br><br><br>
             </form>
 
             <form action="/changeResRoom" method="POST">
-                <h4>Αλλαγή Δωματίου</h4>
+                <header>Αλλαγή Δωματίου</header>
                 <br><br>
                 Αριθμός Δωματίου: <input type="number" id="roomNotochange">
                 <br><br>
@@ -46,7 +47,9 @@
                 <input type="submit" value="Αλλαγή Δωματίου">
             </form>
             
-            <!--καπου να μπει ενα κουμπί το οποίο θα μας παραπέμπει στο λινκ /addNewAdmin όπου σου αρέσει -->
-
-        </div>
+            
+    </div>
+    <div class="neos">
+        <button type="button" onclick="window.location.href = '/adminRegister'" class="buttons">Προσθήκη Διαχειριστή</button>
+    </div>
 </body>    

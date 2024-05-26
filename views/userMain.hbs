@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/stylepage1.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <body>    
     <section class="welcome">
         <header> Welcome to El Dorado Boutique Hotel</header><br>
@@ -6,28 +7,44 @@
             <button type="button" onclick="window.location.href = '/loadRooms';">Δωμάτια</button>
             <button type="button" onclick="window.location.href = '/aboutfood';">Διατροφή</button>
             <button type="button" onclick="window.location.href = '/newRes';">Kάντε Κράτηση</button>
-            <button type="button" onclick="window.location.href = '/newRes';">About Us</button>
+            <button type="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">About Us</button>
             <button type="button" onclick="window.location.href = '/logout'">Log out</button>
         </div>
-        <hr>
     </section>
 
     <section>
-        <header>Οι εγκαταστάσεις μας</header>
         <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide">
-                                <header>Ciudad Juarez</header>
-                                <hr>
-                                    <img src="/img/dom51.jpeg" alt="Φωτογραφία Δωματίου 1" >
+                                <header class="display">Reception</header>
+                                    <img src="/img/reception.jpg" alt="Reception" >
                             </div>
                             <div class="slide">
-                                <header>Ciudad Juarez</header>
-                                <hr>
-                                    <img src="/img/dom52.jpg" alt="Φωτογραφία Δωματίου 2" >
+                                <header class="display">Pool</header>
+                                    <img src="/img/hoteloutside.jpg" alt="Pool" >
+                            </div>
+                            <div class="slide">
+                                <header class="display">Dinning Area</header>
+                                    <img src="/img/dinning.jpg" alt="Dinning Area" >
+                            </div>
+                            <div class="slide">
+                                <header class="display">Food</header>
+                                    <img src="/img/food.jpg" alt="Food" >
+                            </div>
+                            <div class="slide">
+                                <header class="display">Αpartments</header>
+                                    <img src="/img/bedfloor.jpg" alt="Αpartments" >
+                            </div>
+                            <div class="slide">
+                                <header class="display">Convinience</header>
+                                    <img src="/img/shower.jpg" alt="Convinience" >
+                            </div>
+                            <div class="slide">
+                                <header class="display">Convinience</header>
+                                    <img src="/img/wcbig.jpg" alt="Convinience2" >
                             </div>
                         </div>
                         <div class="navigation">
@@ -38,6 +55,29 @@
                 </div>
                 <div class="col-2"></div>
     </section>
-    
-<script src="roomsimg.mjs"></script> 
+    <section class="infos">
+        <div class="row">
+            <div class="col-4 about" id="about">
+                <header>About Us</header>
+                <h>San Crisanto,Yucatan, Mexico 97424</h>
+                <h>Τηλέφωνο: +52 1089-2103</h>
+                <h>Email: info@eldoradoboutique.com</h>
+                <h>Join Our Team: join@eldoradoboutique.com</h>
+                <h>Eco-friendly Resort</h>
+            </div>
+            <div class="col-4 adminlogin">
+                <header>Admin</header><br>
+                <button type="button" onclick="window.location.href = '/adminLogin';">Admin Log In</button>
+            </div>
+            <div class="col-4">
+                <div class="map">
+                    <div id="map" style="height:190px; width: 90%;"></div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+<script src="indexmapgallery.mjs"></script> 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>     
 </body>

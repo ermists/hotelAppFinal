@@ -55,8 +55,9 @@
 
 .inform{
     padding-left: 10px;
+    padding-right: 10px;
     border-radius: 8px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255,0.7);
     box-shadow: 0 5px 9px #00000050;
     width: 25%;
 }
@@ -95,8 +96,8 @@ body{
 .menubar button:hover{
     text-decoration: underline;
     text-underline-offset: 5px;
-    text-decoration-color: rgba(255, 255, 255, 1) ;
-    color: white;
+    text-decoration-color: rgb(156, 207, 200); 
+    color: rgb(156, 207, 200); 
 }
 
 .welcomeRooms{
@@ -105,77 +106,21 @@ body{
     
 }
 
-/* h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:rgba(59, 26, 26, 0.324);
-    color: rgba(59, 26, 26, 0.9);
-    height: 4rem;
-    font-weight: 550;
-    
-}
-
-
-
-.container {
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-}
-.container img{
-    width: 95%;
-    height: 450px;
-    object-fit: cover;
-
-}
-header{
-    font-size: 1.5em;
-    font-weight: 450;
-    font-style: italic;
-}
-
-body{
-    font-family: "Georgia", serif;
-    background-image: url('img/sea_blur.jpg');  
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;  
-}
-
-p {
-    font-size: 1.2em;
-}
-
-h2 {
-    font-size: 2em;
-    font-style: italic;
-}
-.reservation {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    
-}
-
-.adminlog {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.reservation button{
-    background-color:rgba(105, 57, 9, 0.2);
-    color: rgba(59, 26, 26, 0.9);
+.navigationbut button{
+    background-color: transparent;
     border: none;
-    font-weight: bold;
+    font-size: xx-large;
+    color: rgba(255, 255, 255, 0.626);
 }
 
-.adminlog button{
-    background-color:rgba(105, 57, 9, 0.2);
-    color: rgba(59, 26, 26, 0.9);
-    border: none;
-    font-weight: bold;
-    height: 2rem;
-    width: 7rem;
-} */
+.navigationbut button:hover {
+    color: rgba(255, 255, 255, 1);
+} 
+
+.inform header{
+    color: rgb(77, 43, 13);
+    padding-top: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 600;
+}

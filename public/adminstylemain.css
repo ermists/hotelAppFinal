@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+form{
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+form header{
+    text-align: center;
+    font-size: larger;
+}
+
+.banner header{
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+form input, .neos button{
+    border-radius: 8px;
+    border:none;
+    box-shadow: 0 4px 8px #00000050;
+}
+
+form input[type="submit"], .neos button{
+    background-color: rgba(128, 128, 128, 0.609);
+    margin-top: 10px;
+    display: block; 
+    width: fit-content; 
+    margin: auto;
+    height: 30px;
+}
+
+.neos{
+    margin-top: 40px;
+}
+

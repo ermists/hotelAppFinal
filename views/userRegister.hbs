@@ -1,12 +1,21 @@
-<form action="/newUser" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+<link rel="stylesheet" href="/userregstyle.css">
+<body>
+    <div class="form-container">
+        <form action="/newUser" method="POST">
+            <div class="image">
+                <legend>Δημιουργία Λογαριασμού</legend>
+            </div>
+            <div class="stoixeia">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-
-    <button type="submit">Register</button>
-
-
-    {{message}}
-</form>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="eisodos">
+                <button type="submit">Εγγραφή</button>
+            </div>
+                {{message}}
+        </form>
+    </div>
+</body>

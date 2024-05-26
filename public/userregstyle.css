@@ -1,0 +1,79 @@
+.form-container {
+    width: 350px;
+    height:fit-content;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 5px 9px #00000050;
+    background-color: white;
+}
+.image{
+    display: flex;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('img/imgsea.jpg'); 
+    background-size: 350px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;    
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px; 
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;   
+    background-image: url('img/bg_blur.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;  
+}
+
+.stoixeia {
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.eisodos {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.eisodos button{
+    border: none;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+.stoixeia input{
+    box-sizing: border-box;
+    width: 100%; 
+    height: 1rem;
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    margin: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+}
+
+legend{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: rgb(0, 63, 55);
+    font-size: 1.3rem;
+}
