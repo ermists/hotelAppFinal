@@ -119,21 +119,20 @@ body{
     border-radius: 8px;
 }
 .about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: rgba(77, 43, 13, 0.906) ;
-    text-align: center;
 }
 .about header{
-    padding-top: 10px;
-    margin-bottom: 10px;
     font-size: 1.2rem;
-    text-align: center;
     font-weight: 600;
     
 }
 
 .about h{
     font-size: 1.1rem;
-    text-align: center;
 }
 
 .adminlogin{
