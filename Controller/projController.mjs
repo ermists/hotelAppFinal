@@ -30,7 +30,6 @@ export function addNewRes (req, res) {
         }
 
         if (model.checkRes(arrivalDate, departureDate, room)) {
-            console.log('check1')
             model.addNewRes(SSN, arrivalDate, departureDate, room, PeopleNo, food);
             res.redirect('/userMain');
         } else {
