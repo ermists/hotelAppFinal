@@ -93,10 +93,8 @@ body{
 }
 
 .menu button:hover{
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-color: rgba(118, 65, 20, 0.5) ;
-}
+    color: rgba(118, 65, 20, 0.5) ;
+}    
 
 .infos{
     display: flex;

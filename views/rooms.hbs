@@ -2,13 +2,12 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <body>       
         <section class="welcomeRooms">
-        <header> Welcome to El Dorado Boutique Hotel</header><br>
+        <header>El Dorado Boutique Hotel - Rooms</header><br>
         <div class="menubar">
             <button type="button" onclick="window.location.href = '/';">Αρχική</button>
             <button type="button" onclick="window.location.href = '/aboutfood';">Διατροφή</button>
             <button type="button" onclick="window.location.href = '/newRes';">Kάντε Κράτηση</button>
             <button type="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">About Us</button>
-            <button type="button" onclick="window.location.href = '/userLogin';">Σύνδεση</button>
         </div>
         </section>
         <div class="row">
@@ -20,10 +19,13 @@
                     <section class="gallery-contain"> {{!--Room1--}}
                         <div class="inform">
                             <header>San Jose (Δίκλινο-Budget)</header>
+                            <h>Δίκλινο studio 20τ.μ. με απλό, διπλό κρεβάτι. Διαθέτει μικρό καναπέ και ισόγεια βεράντα με καθιστικό με θέα στην πισίνα . </h>
+                            <br><br>
+                            <h>Τιμή ανά βράδυ/άτομο:30€</h>
                         </div>
 
                         <div class="gallery" id="gallery1">
-                            <div class="picture"><img src="/img/bedminimal.jpg" alt="Photo 11"></div>
+                            <div class="picture"><img src="/img/budget.jpg" alt="Photo 11"></div>
                             <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo12"></div>
 
                             <div class="navigationbut" id="but1">
@@ -37,10 +39,13 @@
                     <section class="gallery-contain">  {{!--Room2--}}
                         <div class="inform">
                             <header>Veracruz (Δίκλινο-Luxurious)</header>
+                            <h>Δίκλινη ισόγεια σουίτα 35τ.μ., με διπλό king-size κρεβάτι. Διαθέτει ευρύχωρη βεράντα με καθιστικό όπως και εξωτερικό ντουζ καθώς απέχει από την θάλασσα μόλις 50 μέτρα.</h><br>
+                            <br>
+                            <h>Τιμή ανά βράδυ/άτομο:50€</h>
                         </div>
 
                         <div class="gallery" id="gallery2">
-                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
+                            <div class="picture"><img src="/img/curtainsbed.jpg" alt="Photo 21"></div>
                             <div class="picture"><img src="/img/shower.jpg" alt="Photo22"></div>
 
                             <div class="navigationbut" id="but2">
@@ -53,11 +58,14 @@
                     <section class="gallery-contain">  {{!--Room3--}}
                         <div class="inform">
                             <header>Cordoba (Τετράκλινο-Budget)</header>
+                            <h>Τετράκλινη δίχωρη μεζονέτα, με 2 απλά δίκλινα κρεβάτια. Διαθέτει μπαλκόνι και στους δύο ορόφους και ένα WC. Θέα στη θάλασσα.</h><br>
+                            <br>
+                            <h>Τιμή ανά βράδυ/άτομο:25€ </h>
                         </div>
 
                         <div class="gallery" id="gallery3">
-                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
-                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo22"></div>
+                            <div class="picture"><img src="/img/bedminimal.jpg" alt="Photo 31"></div>
+                            <div class="picture"><img src="/img/bedsofa.jpg" alt="Photo32"></div>
 
                             <div class="navigationbut" id="but3">
                                 <button class="prev" onclick="prevSlide(3)">❮</button>
@@ -69,11 +77,15 @@
                     <section class="gallery-contain">  {{!--Room4--}}
                         <div class="inform">
                             <header>Guadalajara (Τετράκλινο-Luxurious)</header>
+                            <h>Δίχωρο υπερυψωμένο διαμέρισμα με δύο king-size διπλά κρεβάτια. Διαθέτη απεριόριστη θέα στη θάλασσα, ειδικά διαμορφωμένο μπαλκόνι για να απολαμβάνετε τη θέα και 2 μεγάλα WC με μπανιέρα </h><br>
+                            <br>
+                            <h>Τιμή ανά βράδυ/άτομο:48€ </h>
                         </div>
 
                         <div class="gallery" id="gallery4">
-                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
-                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo22"></div>
+                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 41"></div>
+                            <div class="picture"><img src="/img/deskbed.jpg" alt="Photo42"></div>
+                            <div class="picture"><img src="/img/wcbig.jpg" alt="Photo43"></div>
 
                             <div class="navigationbut" id="but4">
                                 <button class="prev" onclick="prevSlide(4)">❮</button>
@@ -85,11 +97,17 @@
                     <section class="gallery-contain">  {{!--Room5--}}
                         <div class="inform">
                             <header>Ciudad Juarez (Εξάκλινο-Luxurious)</header>
+                            <h>Ισόγειο τρίχωρο διαμέρισμα, με 1 king-size και 2 απλά διπλά κρεβάτια. Στο κέντρο του ξενοδοχείο-κοντά σε όλα τα spots. Ιδανικό για οικογένειες.</h>
+                            <br>
+                            <br>
+                            <h>Τιμή ανά βράδυ/άτομο:20€ </h>
                         </div>
 
                         <div class="gallery" id="gallery5">
-                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
-                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo22"></div>
+                            <div class="picture"><img src="/img/bedfloor.jpg" alt="Photo 51"></div>
+                            <div class="picture"><img src="/img/tribalbed.jpg" alt="Photo52"></div>
+                            <div class="picture"><img src="/img/bedextra.jpg" alt="Photo53"></div>
+
 
                             <div class="navigationbut" id="but5">
                                 <button class="prev" onclick="prevSlide(5)">❮</button>
