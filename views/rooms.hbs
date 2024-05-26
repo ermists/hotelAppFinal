@@ -1,7 +1,137 @@
 <link rel="stylesheet" href="/stylepageroom.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <body>       
-        <h1>El Dorado Seaside Resort</h1>
-        <div class="container-fluid">
+        <section class="welcomeRooms">
+        <header> Welcome to El Dorado Boutique Hotel</header><br>
+        <div class="menubar">
+            <button type="button" onclick="window.location.href = '/';">Αρχική</button>
+            <button type="button" onclick="window.location.href = '/aboutfood';">Διατροφή</button>
+            <button type="button" onclick="window.location.href = '/newRes';">Kάντε Κράτηση</button>
+            <button type="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">About Us</button>
+            <button type="button" onclick="window.location.href = '/userLogin';">Σύνδεση</button>
+        </div>
+        </section>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <section class="rooms-display" id="room1">
+                    {{!-- <header>Διαθέσιμα Δωμάτια</header> --}}
+
+                    <section class="gallery-contain"> {{!--Room1--}}
+                        <div class="inform">
+                            <header>San Jose (Δίκλινο-Budget)</header>
+                        </div>
+
+                        <div class="gallery" id="gallery1">
+                            <div class="picture"><img src="/img/bedminimal.jpg" alt="Photo 11"></div>
+                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo12"></div>
+
+                            <div class="navigationbut" id="but1">
+                                <button class="prev" onclick="prevSlide(1)">❮</button>
+                                <button class="next" onclick="nextSlide(1)">❯</button>
+                            </div>
+                        </div>   
+                    
+                    </section>
+
+                    <section class="gallery-contain">  {{!--Room2--}}
+                        <div class="inform">
+                            <header>Veracruz (Δίκλινο-Luxurious)</header>
+                        </div>
+
+                        <div class="gallery" id="gallery2">
+                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
+                            <div class="picture"><img src="/img/shower.jpg" alt="Photo22"></div>
+
+                            <div class="navigationbut" id="but2">
+                                <button class="prev" onclick="prevSlide(2)">❮</button>
+                                <button class="next" onclick="nextSlide(2)">❯</button>
+                            </div>
+                        </div>   
+                    </section>
+
+                    <section class="gallery-contain">  {{!--Room3--}}
+                        <div class="inform">
+                            <header>Cordoba (Τετράκλινο-Budget)</header>
+                        </div>
+
+                        <div class="gallery" id="gallery3">
+                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
+                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo22"></div>
+
+                            <div class="navigationbut" id="but3">
+                                <button class="prev" onclick="prevSlide(3)">❮</button>
+                                <button class="next" onclick="nextSlide(3)">❯</button>
+                            </div>
+                        </div>   
+                    </section>
+
+                    <section class="gallery-contain">  {{!--Room4--}}
+                        <div class="inform">
+                            <header>Guadalajara (Τετράκλινο-Luxurious)</header>
+                        </div>
+
+                        <div class="gallery" id="gallery4">
+                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
+                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo22"></div>
+
+                            <div class="navigationbut" id="but4">
+                                <button class="prev" onclick="prevSlide(4)">❮</button>
+                                <button class="next" onclick="nextSlide(4)">❯</button>
+                            </div>
+                        </div>   
+                    </section>
+
+                    <section class="gallery-contain">  {{!--Room5--}}
+                        <div class="inform">
+                            <header>Ciudad Juarez (Εξάκλινο-Luxurious)</header>
+                        </div>
+
+                        <div class="gallery" id="gallery5">
+                            <div class="picture"><img src="/img/bedview.jpg" alt="Photo 21"></div>
+                            <div class="picture"><img src="/img/simplebathroom.jpg" alt="Photo22"></div>
+
+                            <div class="navigationbut" id="but5">
+                                <button class="prev" onclick="prevSlide(5)">❮</button>
+                                <button class="next" onclick="nextSlide(5)">❯</button>
+                            </div>
+                        </div>   
+                    </section>
+                </section>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <section class="infos">
+        <div class="row">
+            <div class="col-4 about" id="about">
+                <header>About Us</header>
+                <h>San Crisanto,Yucatan, Mexico 97424</h>
+                <h>Τηλέφωνο: +52 1089-2103</h>
+                <h>Email: info@eldoradoboutique.com</h>
+                <h>Join Our Team: join@eldoradoboutique.com</h>
+                <h>Eco-friendly Resort</h>
+            </div>
+            <div class="col-4 adminlogin">
+                <header>Admin</header><br>
+                <button type="button" onclick="window.location.href = '/adminLogin';">Admin Log In</button>
+            </div>
+            <div class="col-4">
+                <div class="map">
+                    <div id="map" style="height:190px; width: 90%;"></div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+<script src="roomshelp.mjs"></script> 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>      
+</body> 
+
+           
+           
+{{!--   <div class="container-fluid">
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
@@ -135,11 +265,13 @@
                     </div>
                 </section>
              </div>
-        </div>
-</body>            
-           
-           
-           
+        </div> --}}
+
+
+
+
+
+
            {{!--  <section class="dom5"> 
                 <div class="row">                       <!--5ο Δωμάτιο-->
                     <div class="col-2"></div>

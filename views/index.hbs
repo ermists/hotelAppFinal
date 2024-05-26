@@ -7,7 +7,7 @@
             <button type="button" onclick="window.location.href = '/loadRooms';">Δωμάτια</button>
             <button type="button" onclick="window.location.href = '/aboutfood';">Διατροφή</button>
             <button type="button" onclick="window.location.href = '/newRes';">Kάντε Κράτηση</button>
-            <button type="button" onclick="window.location.href = '/newRes';">About Us</button>
+            <button type="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">About Us</button>
             <button type="button" onclick="window.location.href = '/userLogin';">Σύνδεση</button>
         </div>
     </section>
@@ -57,7 +57,7 @@
     </section>
     <section class="infos">
         <div class="row">
-            <div class="col-4 about">
+            <div class="col-4 about" id="about">
                 <header>About Us</header>
                 <h>San Crisanto,Yucatan, Mexico 97424</h>
                 <h>Τηλέφωνο: +52 1089-2103</h>
@@ -78,6 +78,6 @@
             
         </div>
     </section>
-<script src="roomsimg.mjs"></script> 
+<script src="indexmapgallery.mjs"></script> 
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </body>
