@@ -24,9 +24,9 @@ router.route('/newAdmin').post(loginController.checkAuthenticatedAdmin,loginCont
 router.get('/newUser', loginController.newUserShow);
 router.route('/newUser').post(loginController.addNewUser);
 
-router.post('/changeResDate',loginController.checkAuthenticatedAdmin, projController.changeResDate);
-router.post('/changeResRoom',loginController.checkAuthenticatedAdmin, projController.changeResRoom);
-router.post('/deleteRes',loginController.checkAuthenticatedAdmin, projController.deleteRes);
+router.post('/changeResDate', projController.changeResDate);
+router.post('/changeResRoom',projController.changeResRoom);
+router.post('/deleteRes', projController.deleteRes);
 router.get('/newRes', loginController.checkAuthenticatedUser, projController.loadNewRes);
 router.route('/newRes').post(loginController.checkAuthenticatedUser, projController.addNewRes);
 router.get('/aboutfood', projController.aboutFood);

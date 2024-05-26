@@ -29,8 +29,6 @@ export async function userDoLogin (req, res, next) {
             if (match) {
                 //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
                 req.session.loggedUserId = user.userUsername;
-                //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
-                // res.redirect("/");            
                 const redirectTo = "/userMain";
     
                 res.redirect(redirectTo);
@@ -55,9 +53,8 @@ export async function adminDoLogin (req, res, next) {
             const match = await bcrypt.compare(req.body.password, user.adminPassword);
             if (match) {
                 //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
-                req.session.loggedUserId = user.adminUsername;
-                //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
-                // res.redirect("/");            
+                req.session.loggedAdminId = user.adminUsername;
+
                 const redirectTo = "/adminMain";
     
                 res.redirect(redirectTo);
@@ -83,10 +80,10 @@ export function logout (req, res,next) {
 
 export let checkAuthenticatedAdmin = function (req, res, next) {
     //Αν η μεταβλητή συνεδρίας έχει τεθεί, τότε ο χρήστης είναι συνεδεμένος
-    if (req.session.loggedUserId) {
+    if (req.session.loggedAdminId) {
         console.log("Admin is authenticated", req.originalUrl);
         try{
-            let x = model.getAdminByUsername(req.session.loggedUserId);
+            let x = model.getAdminByUsername(req.session.loggedAdminId);
         }catch(err){
             res.redirect('/adminLogin');
         }
